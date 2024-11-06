@@ -64,7 +64,7 @@ header{
 .radio-cont{
 	display: grid;
 	grid-template-rows: 40px 40px 40px;
-	grid-template-columns: 30px 600px ;
+	grid-template-columns: 30px 620px ;
 	margin-top: 50px;
 	font-size: 30px;
 	margin-right: 10px;
