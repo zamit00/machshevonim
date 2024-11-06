@@ -2,7 +2,7 @@
 body{
 	display: flex;
 	flex-direction: column;
-	width: 750px;
+	width: 800px;
 	border: 1px solid blue;
 }
 .pakadim{
@@ -42,13 +42,13 @@ header{
 		justify-content: center;
 		align-items: center;
 		background-color: blue;
-		width: 750px;
+		width: 800px;
 		height: auto;
 		margin-right: 2px;
 	
 }
 .contain{
-	width: 550px;
+	width: 600px;
 	height: 700;
 	border: 1px solid blue;
 	background-color: aliceblue;
