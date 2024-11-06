@@ -4,6 +4,7 @@ body{
 	flex-direction: column;
 	width: 800px;
 	border: 1px solid blue;
+	align-items:center;
 }
 .pakadim{
 	display: flex;
