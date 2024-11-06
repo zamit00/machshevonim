@@ -77,15 +77,15 @@ function toggle(x){
 	}
 	else if (x!=="deribit"){
 		document.getElementById("deribit").style.display="none";
-	        document.getElementById("body").style.alignItems="right";
+	        document.getElementById("body").style.alignItems="flex-end";
 	}
 	else if (x!=="deribit"){
 		 document.getElementById("deribit").style.display="none";
-	         document.getElementById("body").style.alignItems="right";
+	         document.getElementById("body").style.alignItems="flex-end";
 	}
 	else if (x!=="deribit"){
 		document.getElementById("deribit").style.display="none";
-	        document.getElementById("body").style.alignItems="right";
+	        document.getElementById("body").style.alignItems="flex-end";
 	}
 	
 }
