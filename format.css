@@ -84,7 +84,7 @@ header{
 .tkofadn{
 	display: grid;
 	grid-template-rows: 40px 40px ;
-	grid-template-columns: 150px 70px 175px 80px;
+	grid-template-columns: 270px 70px 270px 80px;
 	font-size: 30px;
 	margin: 10px 10px 10px 0px;
 	text-align: right;
