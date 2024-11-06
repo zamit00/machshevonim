@@ -2,8 +2,6 @@
 body{
 	display: flex;
 	flex-direction: column;
-	width: 850px;
-	border: 1px solid blue;
 	align-items:center;
 }
 .pakadim{
