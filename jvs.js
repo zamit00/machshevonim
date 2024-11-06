@@ -72,7 +72,9 @@ function hashev(hp,ts,tk,rb){
 function toggle(x){
 	if (x==="deribit"){
 		document.getElementById("deribit").style.display="flex";
-	}document.getElementById("body").style.alignItems="center";
+	
+	document.getElementById("body").style.alignItems="center";
+	}
 	else if (x!=="deribit"){
 		document.getElementById("deribit").style.display="none";
 	        document.getElementById("body").style.alignItems="right";
