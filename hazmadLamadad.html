@@ -252,8 +252,10 @@
                     // המרת כל הנתונים בתאריך לפורמט תאריך
                     jsonData.forEach(row => {
                         row[1] = convertExcelDateToJSDate(row[1]);
-            
-                    });
+                        if(row[2] === undefined){row[2]=0;}
+                        if(row[3] === undefined){row[3]=0;}
+                    
+		    });
                     
 
                     // סינון שורות עם ערכים חסרים או NaN
