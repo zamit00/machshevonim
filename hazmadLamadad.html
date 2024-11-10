@@ -54,9 +54,9 @@ fetch('https://zamit00.github.io/machshevonim/madadim.xlsx')
     const worksheet = madad.Sheets[madad.SheetNames[0]];
     
     // המרת הגיליון ל-JSON
-    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+    const jsonData1 = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
     
-    console.log(jsonData); // הצגת הנתונים בקונסול
+    console.log(jsonData1); // הצגת הנתונים בקונסול
     
    
   })
