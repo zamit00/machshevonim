@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="heb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Process Excel File</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+</head>
+<body style="display: flex;justify-content: space-around;" dir="rtl" >
+    
+    
+    <!-- כפתור לבחירת קובץ Excel -->
+    <input type="file" id="input-excel" accept=".xlsx, .xls" onchange="yavee(event)" />
+   
+    <br/>
+	<div sytle="display:flex;flex-direction:column;">
+		<div style="display:flex;flex-direction:column;">
+			
+			הקלד תאריך בפורמט dd/mm/yyyy<input type="text" id="datea"></input><br>
+			הקלד סכום<input type="number" id="schom"/></input><br>
+			<button onclick="cnl()" style="width: 40px; height: 20px;">בצע</button>
+		</div>
+		<p id="basis"></p>
+		<p id="nohahy"></p>
+		<p id="keren"></p>
+		<p id="hazmada"></p>
+		<p id="shuvy"></p>
+	</div>
+	
+    <!-- מקום להציג את הנתונים -->
+    
+    <div id="output"></div>
+    
+    <h2 id="mesakemet" style="text-align: center;display: none;">טבלה מסכמת לפי שנה 
+        <br/><div id="summary-output"></div>
+       
+    </h2>   
+    <script>
+       
+        
+		var madad=[15012012,91.3487942137929,
+15022012,91.3487942137929,
+15032012,91.3487942137929,
+15042012,91.7001796584821,
+15052012,92.4906984486414,
+15062012,92.4906984486414,
+15072012,92.2272184413593,
+15082012,92.3150451104533,
+15092012,93.2812172388007,
+15102012,93.2812172388007,
+15112012,93.1055639006127,
+15122012,92.6663517868294,
+15012013,92.8420051250175,
+15022013,92.6800574733069,
+15032013,92.6800574733069,
+15042013,92.8648479358132,
+15052013,93.234507629139,
+15062013,93.3269028603922,
+15072013,94.0661434787307,
+15082013,94.3433291724903,
+15092013,94.5281196349966,
+15102013,94.5281196349966,
+15112013,94.8053053287562,
+15122013,94.4357244037434,
+15012014,94.5281196349966,
+15022014,93.9736694791645,
+15032014,93.7888790166581,
+15042014,94.0661434787307,
+15052014,94.1585387099839,
+15062014,94.2509339412371,
+15072014,94.5281196349966,
+15082014,94.6205148662498,
+15092014,94.5281196349966,
+15102014,94.2509339412371,
+15112014,94.5281196349966,
+15122014,94.3433291724903,
+15012015,94.3433291724903,
+15022015,93.4968848800379,
+15032015,92.837121489606,
+15042015,93.1198997335948,
+15052015,93.6853774532594,
+15062015,93.8738700264809,
+15072015,94.1566482704698,
+15082015,94.3451408436913,
+15092015,94.1566482704698,
+15102015,93.7796631240267,
+15112015,93.8738700264809,
+15122015,93.4968848800379,
+15012016,93.4026779775837,
+15022016,92.9314071603733,
+15032016,92.6486289163845,
+15042016,92.4601363431629,
+15052016,92.837121489606,
+15062016,93.1198997335948,
+15072016,93.4026779775837,
+15082016,93.7796631240267,
+15092016,93.4968848800379,
+15102016,93.4026779775837,
+15112016,93.5911705508052,
+15122016,93.2141854043621,
+15012017,93.2141854043621,
+15022017,93.0277408072809,
+15032017,93.0277408072809,
+15042017,93.3073683187462,
+15052017,93.4938129158274,
+15062017,93.8666233416768,
+15072017,93.2141854043621,
+15082017,93.120923721665,
+15092017,93.4005512331303,
+15102017,93.4938129158274,
+15112017,93.7734404272927,
+15122017,93.4938129158274,
+15012018,93.5869958302115,
+15022018,93.120923721665,
+15032018,93.2141854043621,
+15042018,93.4938129158274,
+15052018,93.8666233416768,
+15062018,94.3326954502233,
+15072018,94.4259571329204,
+15082018,94.4259571329204,
+15092018,94.5191400473045,
+15102018,94.6124017300017,
+15112018,94.8920292414669,
+15122018,94.6124017300017,
+15012019,94.3326954502233,
+15022019,94.2404577555963,
+15032019,94.3345858897374,
+15042019,94.8053053287562,
+15052019,95.0877684994926,
+15062019,95.7467442067937,
+15072019,95.1818966336338,
+15082019,94.8994334628973,
+15092019,95.0877684994926,
+15102019,94.8994334628973,
+15112019,95.2760247677749,
+15122019,94.8994334628973,
+15012020,94.8994334628973,
+15022020,94.5228421580197,
+15032020,94.4287140238785,
+15042020,94.8053053287562,
+15052020,94.5228421580197,
+15062020,94.2404577555963,
+15072020,94.1463296214552,
+15082020,94.3345858897374,
+15092020,94.3345858897374,
+15102020,94.2404577555963,
+15112020,94.5228421580197,
+15122020,94.3345858897374,
+15012021,94.2404577555963,
+15022021,94.1454631700112,
+15032021,94.4287140238785,
+15042021,94.9952944999264,
+15052021,95.2786241221068,
+15062021,95.6563181833677,
+15072021,95.7507613907612,
+15082021,96.128455452022,
+15092021,96.4117063058894,
+15102021,96.6005927206764,
+15112021,96.6950359280699,
+15122021,96.6005927206764,
+15012022,96.8838435745438,
+15022022,97.0727299893307,
+15032022,97.7337536727721,
+15042022,98.3003341488199,
+15052022,99.0557222713416,
+15062022,99.6223027473894,
+15072022,99.9999968086503,
+15082022,101.133157760746,
+15092022,100.849906906879,
+15102022,101.038714553352,
+15112022,101.6052950294,
+15122022,101.699738236794,
+15012023,101.983067858974,
+15022023,102.300031550844,
+15032023,102.800052802331,
+15042023,103.200038296196,
+15052023,104.000009283926,
+15062023,104.200002030859,
+15072023,104.200002030859,
+15082023,104.500030535414,
+15092023,104.99973671365,
+15102023,104.900016029279,
+15112023,105.400037280767,
+15122023,105.100008776212,
+15012024,105.000051786902,
+15022024,105.000051786902,
+15032024,105.400037280767,
+15042024,106.000015521564,
+15052024,106.900022266917,
+15062024,107.10001501385,
+15072024,107.200050771473,
+15082024,107.80002901227,
+15092024,108.799992746932,
+15102024,108.6];
+	
+    function cnl(){
+		var z = document.getElementById('datea').value;
+		const schom = document.getElementById('schom').value;
+		const madadnow=madad.slice(madad.length-1);
+		
+		let formatdate;
+		const y = z.replace(/\//g,"");
+		const da= y.slice(0,2); let mo=y.slice(2,4);const yr=y.slice(4);
+		if(da<15 && Number(mo) ===1){
+			formatdate="1512"+(yr-1);
+		}
+		else if(da<15 && mo >1){
+			if(mo<11){mo="0"+String(Number(mo)-1);}
+			formatdate="15"+(mo)+(yr);
+		}
+		else{
+			if(mo<10){mo="0"+String(Number(mo));}
+			formatdate="15"+mo+yr;
+		}
+		const x= madad.indexOf (Number(formatdate))+1;
+		//if(x===0){alert("none");return;}
+		const w= madad.slice(x, x+1);
+		const tozaa=(madadnow/w*schom).toFixed(2);
+		
+		document.getElementById('basis').innerHTML="מדד בסיס: " + w.toLocaleString();
+		document.getElementById('nohahy').innerHTML="מדד נוכחי: " + madadnow.toLocaleString();
+		document.getElementById('keren').innerHTML="קרן הפקדה: " + Number(schom).toLocaleString();
+		document.getElementById('hazmada').innerHTML="הפרשי הצמדה: " + Number(tozaa-schom).toLocaleString();
+		
+		document.getElementById('shuvy').innerHTML="שווי ריאלי להיום: " + Number(tozaa).toLocaleString();
+		}
+
+	
+
+        function yavee(e) {
+	    document.getElementById('mesakemet').style.display="none";
+            const file = e.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(event) {
+                    const data = event.target.result;
+                    const workbook = XLSX.read(data, { type: 'binary' });
+                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                    let jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+					jsonData=jsonData.slice(5);
+                    //console.log("נתונים מקוריים:", jsonData);
+
+                    // המרת תאריך Excel לפורמט JavaScript Date
+                    const convertExcelDateToJSDate = (excelDate) => {
+                        const date = new Date((excelDate - (25567 + 2)) * 86400 * 1000); // המרה ל-epoch
+                        return date;
+                    };
+
+                    // המרת כל הנתונים בתאריך לפורמט תאריך
+                    jsonData.forEach(row => {
+                        row[1] = convertExcelDateToJSDate(row[1]);
+            
+                    });
+                    
+
+                    // סינון שורות עם ערכים חסרים או NaN
+                    jsonData = jsonData.filter(row => {
+                        return row[1] && row[2]  && row[3]  && row[4] !== undefined;
+                    });
+
+                    // מיון הנתונים לפי תאריך
+                    jsonData.sort((a, b) => a[1] - b[1]);
+
+                    // הצגת הנתונים בטבלה
+                    displayDataInTable(jsonData);
+
+                    // יצירת טבלה מסכמת לפי שנה
+                    const summaryData = createSummaryTable(jsonData);
+                    displaySummaryTable(summaryData);
+                };
+
+                reader.readAsBinaryString(file);
+            }
+        }
+
+        // פונקציה להצגת הנתונים בטבלה
+        function displayDataInTable(data) {
+            const table = document.createElement('table');
+            table.border = '1';
+            table.className = 'tbldata';
+            table.style.display = 'block';
+			
+
+            const headerRow = document.createElement('tr');
+            if (data.length > 0) {
+                let th = document.createElement('th');
+                th.textContent = 'חשבון';
+                headerRow.appendChild(th);
+
+                th = document.createElement('th');
+                th.textContent = 'תאריך הפקדה';
+                headerRow.appendChild(th);
+				
+				th = document.createElement('th');
+                th.textContent = 'חלק עובד';
+                headerRow.appendChild(th);
+
+                th = document.createElement('th');
+                th.textContent = 'חלק מעסיק';
+                headerRow.appendChild(th);
+
+				
+				th = document.createElement('th');
+                th.textContent = 'מדד';
+                headerRow.appendChild(th);
+				
+				
+
+				th = document.createElement('th');
+                th.textContent = 'קרן ריאלית עובד';
+                headerRow.appendChild(th);
+				
+				th = document.createElement('th');
+                th.textContent = 'קרן ריאלית מעסיק';
+                headerRow.appendChild(th);				
+					
+                
+                th = document.createElement('th');
+                th.textContent = 'שכר';
+                headerRow.appendChild(th);
+				
+				
+
+                table.appendChild(headerRow);
+
+                // יצירת שורות עבור הנתונים
+                data.forEach(row => { 
+                    const tr = document.createElement('tr');
+                    row.forEach((cell, index) => {
+                        const td = document.createElement('td');
+			
+                        if (index === 1 && cell instanceof Date) {
+							var madadnow=madad.slice(madad.length-1);	
+                            td.textContent = formatDate(cell);
+							tr.appendChild(td);
+							
+							
+							
+							
+                        } else {
+                            td.textContent = cell;
+							tr.appendChild(td);
+                        }
+						
+						if (index === 3){
+						
+							const da= row[1].getDate(); let mo=row[1].getMonth()+1;const yr=row[1].getFullYear();
+							
+							if(da<15 && mo ===1){
+								formatdate="1512"+(yr-1);
+							}
+							
+							else if(da<15 && mo >1){
+								if(mo<11){mo="0"+String(Number(mo)-1);}
+								formatdate="15"+(mo)+(yr);
+							}
+							else{
+							if(mo<10){mo="0"+String(Number(mo));}
+							formatdate="15"+mo+yr;
+							}
+							
+							const x= madad.indexOf (Number(formatdate))+1;
+							
+							const w= madad.slice(x, x+1);
+							const madadnow=madad.slice(madad.length-1);
+							
+							const td2 = document.createElement('td');
+							td2.textContent = Number(w).toLocaleString();
+							tr.appendChild(td2);
+							const td3 = document.createElement('td');
+							td3.textContent = Number(row[2]*madadnow/w).toLocaleString();
+							tr.appendChild(td3);
+							const td4 = document.createElement('td');
+							td4.textContent = Number(row[3]*madadnow/w).toLocaleString();
+							tr.appendChild(td4);
+						
+						
+						}
+					
+                        
+                    });
+					
+					
+					
+					
+					
+                    table.appendChild(tr);
+                });
+            }
+
+            // הצגת הטבלה בדף
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = ''; // ניקוי התוכן הקודם
+            outputDiv.appendChild(table);
+	   
+        }
+
+        // פונקציה להמיר תאריך לפורמט dd/mm/yyyy
+        function formatDate(date) {
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        // יצירת טבלה מסכמת לפי שנה
+        function createSummaryTable(data) {
+            const summary = {};
+            const annualCap = 188540; // תקרה שנתית
+
+            // עבור כל שורה בנתונים
+            data.forEach(row => {
+                const date = row[1];
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1; // חודשים מתחילים מ-0
+
+                // אם השנה לא קיימת עדיין במילון summary, ניצור רשומה חדשה
+                if (!summary[year]) {
+                    summary[year] = {
+                        months: new Set(),  // לשמור על חודשים ייחודיים
+                        sumCol3: 0,  // סיכום עמודה 3 (חלק עובד)
+                        sumCol4: 0,  // סיכום עמודה 4 (חלק מעסיק)
+                        sumCol5: 0,  // סיכום עמודה 5 (שכר)
+                        accumulatedWorker: 0, // היתרה המצטברת של חלק עובד
+                        accumulatedEmployer: 0, // היתרה המצטברת של חלק מעסיק
+                        crossedWorker: null, // מתי חלק העובד עבר את התקרה
+                        crossedEmployer: null // מתי חלק המעסיק עבר את התקרה
+                    };
+                }
+
+                // הוספת החודש למילון (לא יתווסף יותר מפעם אחת)
+                summary[year].months.add(month);
+
+                // עדכון הסכומים המצטברים
+                summary[year].sumCol3 += row[2] || 0;
+                summary[year].sumCol4 += row[3] || 0;
+                summary[year].sumCol5 += row[4] || 0;
+
+                // עדכון היתרה המצטברת של חלק העובד
+                summary[year].accumulatedWorker += row[2] || 0;
+                if (summary[year].accumulatedWorker > annualCap && summary[year].crossedWorker === null) {
+                    summary[year].crossedWorker = month; // שומר את החודש שבו העובד עבר את התקרה
+                }
+
+                // עדכון היתרה המצטברת של חלק המעסיק
+                summary[year].accumulatedEmployer += row[3] || 0;
+                if (summary[year].accumulatedEmployer > annualCap && summary[year].crossedEmployer === null) {
+                    summary[year].crossedEmployer = month; // שומר את החודש שבו המעסיק עבר את התקרה
+                }
+            });
+
+            // המרת המילון לטבלה
+            const summaryData = [];
+            for (let year in summary) {
+                const monthsCount = summary[year].months.size;
+                const tikrao = Math.min(0.025 * summary[year].sumCol5, 0.025 * annualCap * monthsCount / 12);
+                const tikram = Math.min(0.075 * summary[year].sumCol5, 0.075 * annualCap * monthsCount / 12);
+                let mealtiko=summary[year].sumCol3-tikrao;
+                let mealtikm=summary[year].sumCol4-tikram;
+
+                if (mealtiko<=0){mealtiko=0;}                
+                
+                if (mealtikm<=0){mealtikm=0;}  
+                    
+                
+                summaryData.push([
+                    year,  // שנה
+                    monthsCount,  // מספר החודשים באותה שנה
+                    tikrao, // תקרת עובד
+                    tikram, // תקרת מעסיק
+                    summary[year].sumCol3, // החודש שבו חלק העובד עבר את התקרה
+                    summary[year].sumCol4,
+                    summary[year].sumCol5,
+                    mealtiko,
+                    mealtikm
+
+                   
+
+                     // החודש שבו חלק המעסיק עבר את התקרה
+                ]);
+            }
+
+            // מיון לפי שנה
+            summaryData.sort((a, b) => a[0] - b[0]);
+
+            return summaryData;
+        }
+
+        // פונקציה להצגת הטבלה המסכמת
+	
+        function displaySummaryTable(data) {
+            const table = document.createElement('table');
+            table.style.textAlign="center";
+			table.style.display="none";
+            table.border = '1';
+            const headerRow = document.createElement('tr');
+
+            const headers = ['שנה', 'מספר חודשים', 'תקרת עובד', 'תקרת מעסיק', 'חלק עובד', 'חלק מעסיק','שכר מצטבר','מעל תקרה עובד','מעל תקרה מעביד'];
+            headers.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+            // יצירת שורות עבור הנתונים
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                var i =0;
+                row.forEach(cell => {
+                    const td = document.createElement('td');
+                    if (i > 1 && !isNaN(cell)) {
+                        td.textContent = Number(cell).toLocaleString();
+                    } else {
+                        td.textContent = cell;
+                    }
+
+    i++;
+                    
+                    tr.appendChild(td);
+                    
+                });
+                table.appendChild(tr);
+            });
+
+            // הצגת הטבלה בדף
+            const summaryOutputDiv = document.getElementById('summary-output');
+            summaryOutputDiv.innerHTML = '';  // ניקוי התוכן הקודם
+            summaryOutputDiv.appendChild(table);
+        }
+    </script>
+</body>
+</html>
