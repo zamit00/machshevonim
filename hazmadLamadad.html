@@ -9,11 +9,11 @@
 <body style="display: flex;justify-content: space-around;" dir="rtl" >
     
     
-    <!-- כפתור לבחירת קובץ Excel -->
+    
        
     <br/>
 	<div sytle="display:flex;flex-direction:column;">
-		<input type="file" id="input-excel" accept=".xlsx, .xls" onchange="yavee(event)" />בחר קובץ</input>
+		
 <br/>
 		<div style="display:flex;flex-direction:column;">
 			
@@ -21,12 +21,15 @@
 			הקלד סכום<input type="number" id="schom"/></input><br>
 			<button onclick="cnl()" style="width: 40px; height: 20px;">בצע</button>
 		</div>
-		<p id="basis"></p>
-		<p id="nohahy"></p>
-		<p id="keren"></p>
+		<p id="basis" ></p>
+		<p id="nohahy" ></p>
+		<p id="keren" ></p>
 		<p id="hazmada"></p>
 		<p id="shuvy"></p>
+        <br/>
+        <input type="file" id="input-excel" accept=".xlsx, .xls" onchange="yavee(event)" />
 	</div>
+   
 	
     <!-- מקום להציג את הנתונים -->
     
@@ -104,13 +107,19 @@
 		//if(x===0){alert("none");return;}
 		const w= madad.slice(x, x+1);
 		const tozaa=(madadnow/w*schom).toFixed(2);
+
+        const bas=document.getElementById('basis');
+        const noh= document.getElementById('nohahy');
+        const ker = document.getElementById('keren');
+        const haz =document.getElementById('hazmada');
+        const sh =document.getElementById('shuvy')
+
+		bas.innerHTML="מדד בסיס: " + w.toLocaleString();bas.display='block';
+		noh.innerHTML="מדד נוכחי: " + madadnow.toLocaleString();noh.display='block';
+		ker.innerHTML="קרן הפקדה: " + Number(schom).toLocaleString();ker.display='block';
+		haz.innerHTML="הפרשי הצמדה: " + Number(tozaa-schom).toLocaleString();haz.display='block';
 		
-		document.getElementById('basis').innerHTML="מדד בסיס: " + w.toLocaleString();
-		document.getElementById('nohahy').innerHTML="מדד נוכחי: " + madadnow.toLocaleString();
-		document.getElementById('keren').innerHTML="קרן הפקדה: " + Number(schom).toLocaleString();
-		document.getElementById('hazmada').innerHTML="הפרשי הצמדה: " + Number(tozaa-schom).toLocaleString();
-		
-		document.getElementById('shuvy').innerHTML="שווי ריאלי להיום: " + Number(tozaa).toLocaleString();
+		sh.innerHTML="שווי ריאלי להיום: " + Number(tozaa).toLocaleString();sh.display='block';
 		}
 
 	
@@ -127,7 +136,7 @@
                     const workbook = XLSX.read(data, { type: 'binary' });
                     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                     let jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-		    jsonData=jsonData.slice(1);
+		            jsonData=jsonData.slice(1);
                     //console.log("נתונים מקוריים:", jsonData);
 
                     // המרת תאריך Excel לפורמט JavaScript Date
@@ -136,22 +145,22 @@
                         
                     };
 
+                    // סינון שורות עם ערכים חסרים או NaN
+                    jsonData = jsonData.filter(row => {
+                        return row[0] !== undefined &&   row[0]!==0 && row[1] !== undefined &&   row[1]!==0  ;
+                    });
+
                     // המרת כל הנתונים בתאריך לפורמט תאריך
                     jsonData.forEach(row => {
-                        row[1] = convertExcelDateToJSDate(row[1]);
-                        if(row[2] === undefined){row[2]=0;}
-                        if(row[3] === undefined){row[3]=0;}
+                        row[0] = convertExcelDateToJSDate(row[0]);
                     
 		    });
                     
 
-                    // סינון שורות עם ערכים חסרים או NaN
-                    jsonData = jsonData.filter(row => {
-                        return row[1] !== undefined &&   row[1]!==0 ;
-                    });
+                    
 
                     // מיון הנתונים לפי תאריך
-                    jsonData.sort((a, b) => a[1] - b[1]);
+                    jsonData.sort((a, b) => a[0] - b[0]);
 
                     // הצגת הנתונים בטבלה
                     displayDataInTable(jsonData);
@@ -167,54 +176,39 @@
 
         // פונקציה להצגת הנתונים בטבלה
         function displayDataInTable(data) {
-            const table = document.createElement('table');
+        const table = document.createElement('table');
 	    table.id = 'myTable';
-            table.border = '1';
-            table.className = 'tbldata';
-            table.style.display = 'block';
+        table.border = '1';
+        table.className = 'tbldata';
+        table.style.display = 'block';
 			
 
             const headerRow = document.createElement('tr');
             if (data.length > 0) {
-                let th = document.createElement('th');
-                th.textContent = 'חשבון';
-                headerRow.appendChild(th);
 
                 th = document.createElement('th');
                 th.textContent = 'תאריך הפקדה';
                 headerRow.appendChild(th);
 				
 				th = document.createElement('th');
-                th.textContent = 'חלק עובד';
+                th.textContent = 'סכום';
                 headerRow.appendChild(th);
 
-                th = document.createElement('th');
-                th.textContent = 'חלק מעסיק';
-                headerRow.appendChild(th);
-
-				
 				th = document.createElement('th');
-                th.textContent = 'מדד';
+                th.textContent = 'מדד בסיס';
                 headerRow.appendChild(th);
-				
-				
+							
 
 				th = document.createElement('th');
-                th.textContent = 'קרן ריאלית עובד';
+                th.textContent = 'סכום צמוד למדד';
                 headerRow.appendChild(th);
-				
-				th = document.createElement('th');
-                th.textContent = 'קרן ריאלית מעסיק';
-                headerRow.appendChild(th);				
+				table.appendChild(headerRow);
+							
 					
                 
-                th = document.createElement('th');
-                th.textContent = 'שכר';
-                headerRow.appendChild(th);
+                
 				
 				
-
-                table.appendChild(headerRow);
 
                 // יצירת שורות עבור הנתונים
                 data.forEach(row => { 
@@ -222,22 +216,18 @@
                     row.forEach((cell, index) => {
                         const td = document.createElement('td');
 			
-                        if (index === 1 && cell instanceof Date) {
-							var madadnow=madad.slice(madad.length-1);	
+                        if (index === 0 && cell instanceof Date) {	
                             td.textContent = formatDate(cell);
 							tr.appendChild(td);
-							
-							
-							
-							
+						
                         } else {
-                            td.textContent = cell;
+                            td.textContent = Number(cell.toFixed(2)).toLocaleString();
 							tr.appendChild(td);
                         }
 						
-				if (index === 3){
+				if (index === 1){
 						
-				const da= row[1].getDate(); let mo=row[1].getMonth()+1;const yr=row[1].getFullYear();
+				const da= row[0].getDate(); let mo=row[0].getMonth()+1;const yr=row[0].getFullYear();
 							
 				if(da<15 && mo ===1){
 					formatdate="1512"+(yr-1);
@@ -252,20 +242,17 @@
 					formatdate="15"+mo+yr;
 				}
 							
-				const x= madad.indexOf (Number(formatdate))+1;
-							
+				const x= madad.indexOf (Number(formatdate))+1;			
 				const w= madad.slice(x, x+1);
 				const madadnow=madad.slice(madad.length-1);
 							
 				const td2 = document.createElement('td');
-				td2.textContent = Number(w).toLocaleString();
+				td2.textContent = Number(Number(w).toFixed(2)).toLocaleString();
 				tr.appendChild(td2);
 				const td3 = document.createElement('td');
-				td3.textContent = Number(row[2]*madadnow/w).toLocaleString();
+				td3.textContent = Number(Number((row[1]*madadnow/w)).toFixed(2)).toLocaleString();
 				tr.appendChild(td3);
-				const td4 = document.createElement('td');
-				td4.textContent = Number(row[3]*madadnow/w).toLocaleString();
-				tr.appendChild(td4);
+				
 				}
 					
                         
@@ -289,132 +276,6 @@
             const month = (date.getMonth() + 1).toString().padStart(2, '0');
             const year = date.getFullYear();
             return `${day}/${month}/${year}`;
-        }
-
-        // יצירת טבלה מסכמת לפי שנה
-        function createSummaryTable(data) {
-            const summary = {};
-            const annualCap = 188540; // תקרה שנתית
-
-            // עבור כל שורה בנתונים
-            data.forEach(row => {
-                const date = row[1];
-                const year = date.getFullYear();
-                const month = date.getMonth() + 1; // חודשים מתחילים מ-0
-
-                // אם השנה לא קיימת עדיין במילון summary, ניצור רשומה חדשה
-                if (!summary[year]) {
-                    summary[year] = {
-                        months: new Set(),  // לשמור על חודשים ייחודיים
-                        sumCol3: 0,  // סיכום עמודה 3 (חלק עובד)
-                        sumCol4: 0,  // סיכום עמודה 4 (חלק מעסיק)
-                        sumCol5: 0,  // סיכום עמודה 5 (שכר)
-                        accumulatedWorker: 0, // היתרה המצטברת של חלק עובד
-                        accumulatedEmployer: 0, // היתרה המצטברת של חלק מעסיק
-                        crossedWorker: null, // מתי חלק העובד עבר את התקרה
-                        crossedEmployer: null // מתי חלק המעסיק עבר את התקרה
-                    };
-                }
-
-                // הוספת החודש למילון (לא יתווסף יותר מפעם אחת)
-                summary[year].months.add(month);
-
-                // עדכון הסכומים המצטברים
-                summary[year].sumCol3 += row[2] || 0;
-                summary[year].sumCol4 += row[3] || 0;
-                summary[year].sumCol5 += row[4] || 0;
-
-                // עדכון היתרה המצטברת של חלק העובד
-                summary[year].accumulatedWorker += row[2] || 0;
-                if (summary[year].accumulatedWorker > annualCap && summary[year].crossedWorker === null) {
-                    summary[year].crossedWorker = month; // שומר את החודש שבו העובד עבר את התקרה
-                }
-
-                // עדכון היתרה המצטברת של חלק המעסיק
-                summary[year].accumulatedEmployer += row[3] || 0;
-                if (summary[year].accumulatedEmployer > annualCap && summary[year].crossedEmployer === null) {
-                    summary[year].crossedEmployer = month; // שומר את החודש שבו המעסיק עבר את התקרה
-                }
-            });
-
-            // המרת המילון לטבלה
-            const summaryData = [];
-            for (let year in summary) {
-                const monthsCount = summary[year].months.size;
-                const tikrao = Math.min(0.025 * summary[year].sumCol5, 0.025 * annualCap * monthsCount / 12);
-                const tikram = Math.min(0.075 * summary[year].sumCol5, 0.075 * annualCap * monthsCount / 12);
-                let mealtiko=summary[year].sumCol3-tikrao;
-                let mealtikm=summary[year].sumCol4-tikram;
-
-                if (mealtiko<=0){mealtiko=0;}                
-                
-                if (mealtikm<=0){mealtikm=0;}  
-                    
-                
-                summaryData.push([
-                    year,  // שנה
-                    monthsCount,  // מספר החודשים באותה שנה
-                    tikrao, // תקרת עובד
-                    tikram, // תקרת מעסיק
-                    summary[year].sumCol3, // החודש שבו חלק העובד עבר את התקרה
-                    summary[year].sumCol4,
-                    summary[year].sumCol5,
-                    mealtiko,
-                    mealtikm
-
-                   
-
-                     // החודש שבו חלק המעסיק עבר את התקרה
-                ]);
-            }
-
-            // מיון לפי שנה
-            summaryData.sort((a, b) => a[0] - b[0]);
-
-            return summaryData;
-        }
-
-        // פונקציה להצגת הטבלה המסכמת
-	
-        function displaySummaryTable(data) {
-            const table = document.createElement('table');
-            table.style.textAlign="center";
-			table.style.display="none";
-            table.border = '1';
-            const headerRow = document.createElement('tr');
-
-            const headers = ['שנה', 'מספר חודשים', 'תקרת עובד', 'תקרת מעסיק', 'חלק עובד', 'חלק מעסיק','שכר מצטבר','מעל תקרה עובד','מעל תקרה מעביד'];
-            headers.forEach(headerText => {
-                const th = document.createElement('th');
-                th.textContent = headerText;
-                headerRow.appendChild(th);
-            });
-            table.appendChild(headerRow);
-
-            // יצירת שורות עבור הנתונים
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                var i =0;
-                row.forEach(cell => {
-                    const td = document.createElement('td');
-                    if (i > 1 && !isNaN(cell)) {
-                        td.textContent = Number(cell).toLocaleString();
-                    } else {
-                        td.textContent = cell;
-                    }
-
-    i++;
-                    
-                    tr.appendChild(td);
-                    
-                });
-                table.appendChild(tr);
-            });
-
-            // הצגת הטבלה בדף
-            const summaryOutputDiv = document.getElementById('summary-output');
-            summaryOutputDiv.innerHTML = '';  // ניקוי התוכן הקודם
-            summaryOutputDiv.appendChild(table);
         }
     </script>
 </body>
