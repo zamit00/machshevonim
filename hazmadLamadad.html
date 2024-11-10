@@ -147,7 +147,7 @@
 
                     // סינון שורות עם ערכים חסרים או NaN
                     jsonData = jsonData.filter(row => {
-                        return (row[1] !== undefined) &&   (row[2]!==0  && row[3]!==0)  && (row[1] !== 0);
+                        return row[1] !== undefined &&   row[1]!==0 ;
                     });
 
                     // מיון הנתונים לפי תאריך
