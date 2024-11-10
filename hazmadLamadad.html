@@ -244,8 +244,8 @@
 
                     // המרת תאריך Excel לפורמט JavaScript Date
                     const convertExcelDateToJSDate = (excelDate) => {
-                        const date = new Date((excelDate - (25567 + 2)) * 86400 * 1000); // המרה ל-epoch
-                        return date;
+                        return new Date((excelDate - (25567 + 2)) * 86400 * 1000); // המרה ל-epoch
+                        
                     };
 
                     // המרת כל הנתונים בתאריך לפורמט תאריך
