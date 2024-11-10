@@ -40,8 +40,29 @@
        
     </h2>   
     <script>
-       
-        
+
+fetch('madadim.xlsx')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.arrayBuffer(); // קבלת התוכן כ-arrayBuffer
+  })
+  .then(data => {
+    // קריאת הקובץ בעזרת SheetJS
+    var madad = XLSX.read(data, { type: 'array' });
+    const worksheet = madad.Sheets[madad.SheetNames[0]];
+    
+    // המרת הגיליון ל-JSON
+    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+    
+    console.log(jsonData); // הצגת הנתונים בקונסול
+    
+   
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });    
 		var madad=[
 15012012,91.3487942137929,15022012,91.3487942137929,15032012,91.3487942137929,15042012,91.7001796584821,
 15052012,92.4906984486414,
