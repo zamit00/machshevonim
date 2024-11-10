@@ -275,8 +275,8 @@
                 });
             }
 		let sum=Array.from(document.querySelectorAll('#myTable tr td:nth-child(3)'))
-        	.reduce((total,cella) => total+Number(cella.textContent) || 0,0 );
-        	console.log(sum);
+        	sum.forEach(cella => { total=total+Nuber(cella);});
+        	console.log(total);
 
             // הצגת הטבלה בדף
             const outputDiv = document.getElementById('output');
