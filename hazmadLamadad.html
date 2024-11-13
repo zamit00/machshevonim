@@ -17,7 +17,7 @@
 <br/>
 		<div style="display:flex;flex-direction:column;">
 			
-			הקלד תאריך בפורמט dd/mm/yyyy<input type="text" id="datea"></input><br>
+			הקלד תאריך בפורמט dd/mm/yyyy<input type="date" id="datea" lang="heb" dir="rtl"></input><br>
 			הקלד סכום<input type="number" id="schom"/></input><br>
 			<button onclick="cnl()" style="width: 40px; height: 20px;">בצע</button>
 		</div>
@@ -112,8 +112,8 @@ var madad=[
 		const madadnow=madad.slice(madad.length-1);
 		
 		let formatdate;
-		const y = z.replace(/\//g,"");
-		const da= y.slice(0,2); let mo=y.slice(2,4);const yr=y.slice(4);
+		
+		const da= z.getdate(); let mo=z.getmonth()+1;const yr=z.getfullyyear();
 		if(da<15 && Number(mo) ===1){
 			formatdate="1512"+(yr-1);
 		}
