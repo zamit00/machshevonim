@@ -75,7 +75,7 @@ body{
   margin: 25px 240px 25px 25px;
 }
 .tbltozaa{
-  width: 540px;
+  width: 600px;
   height: auto;
   border: 1px solid black;
   margin-right: 50px;
@@ -83,7 +83,7 @@ body{
 }
 th,td{
   height: 40px;
-  width: 180px;
+  width: 200px;
   border: 1px solid blue;
   font-size: 22px;
   text-align: center;
