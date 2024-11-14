@@ -5,7 +5,10 @@ const year=todayd.getFullYear();
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
 
-window.location.href = "https://zamit00.github.io/machshevonim/index.html"
+function back() {
+  window.location.href = "https://zamit00.github.io/machshevonim/";
+}
+
 
 function chooseradio(){
     const radio = document.getElementById("boded");
