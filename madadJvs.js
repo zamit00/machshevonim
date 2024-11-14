@@ -5,6 +5,7 @@ const year=todayd.getFullYear();
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
 
+function back(){window.location="index.html"}
 
 function chooseradio(){
     const radio = document.getElementById("boded");
