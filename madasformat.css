@@ -1,0 +1,101 @@
+.main{
+  width: 600px;
+  height: 710px;
+  border: 2px double black;
+  display: flex;
+  flex-direction: column;
+
+}
+body{
+  display: flex;
+  justify-content: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  margin: 5px;
+}
+.headkot{
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: goldenrod;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shita{
+  margin-top: 10px;
+  font-size: 25px;
+  margin-right: 50px; 
+}
+.sugmadad{
+  width: 200px;
+  height: 30px;
+  font-size: 25px; 
+  margin: 15px 5px;
+  text-align: center;}
+.dated{
+  width: 250px;
+  height: 30px;
+  font-size: 25px; 
+  margin: 15px 5px;
+  text-align: center;
+  
+}
+.taarich,.schom, .madadstyle{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 65%;
+  margin: 0px 50px;
+}
+.lbl{width: 250px;}
+#sugmadad,#datefrom,#dateto,#schom{
+  width: 250px;
+  height: 30px;
+  font-size: 25px;
+}
+#schom{max-width: 190px;}
+.btn{
+  width: 100px;
+  height: 30px;
+  font-size: 25px;
+  margin: 25px 240px 25px 25px;
+}
+.tbltozaa{
+  width: 450px;
+  height: auto;
+  border: 1px solid black;
+  margin-right: 50px;
+  border-collapse: collapse;
+}
+th,td{
+  height: 40px;
+  width: 150px;
+  border: 1px solid goldenrod;
+  font-size: 22px;
+  text-align: center;
+  
+}
+th{
+  background-color: black;
+  color:goldenrod;
+  
+}
+.tbltozaaH{
+  width: 450px;
+  height: auto;
+  border: 1px solid black;
+  margin:10px 50px 30px 0px;
+  border-collapse: collapse;
+}
+.btnup{
+  width: 125px;
+  height: 30px;
+  font-size: 20px;
+  margin-right: 140px;
+}
+.lblup{
+  margin-right: 100px; 
+}
+
