@@ -6,6 +6,18 @@
   flex-direction: column;
 
 }
+.back{
+  margin-right: 50px;
+  width: 200px;
+  height: 35px;
+  font-size: 25px;
+  background-color: black;
+  color: goldenrod;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 body{
   display: flex;
   justify-content: center;
