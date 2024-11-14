@@ -67,7 +67,7 @@ body{
   height: 30px;
   font-size: 25px;
 }
-#schom{max-width: 250px;}
+#schom{max-width: 240px;}
 .btn{
   width: 100px;
   height: 30px;
@@ -115,5 +115,8 @@ th{
 .btnlblup{
    display: flex;
   justify-content: space-evenly;
+}
+#hashev{
+  margin-right: 32%;
 }
   
