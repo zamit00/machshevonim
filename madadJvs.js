@@ -34,6 +34,7 @@ function chooseradio(){
     	document.getElementById('nm2').innerHTML='';
     	document.getElementById('toz').innerHTML='';
     	document.getElementById('toza').innerHTML=''; 
+	document.getElementById('output').innerHTML='';
         
     }
     else{
@@ -153,8 +154,8 @@ function madadsug(){
 
         
         var madadfrom= madad.indexOf (Number(formatdatefrom));
-		var madadto= madad.indexOf (Number(formatdateto));
-		if(madadfrom===-1 || madadto===-1){
+	var madadto= madad.indexOf (Number(formatdateto));
+	if(madadfrom===-1 || madadto===-1){
             alert("אין נתוני מדד לתקופה המבוקשת");return;
         }
         
@@ -163,14 +164,14 @@ function madadsug(){
       
        
         
-		const madadnumfrom= madad.slice(madadfrom+1, madadfrom+2)*-1;
+	const madadnumfrom= madad.slice(madadfrom+1, madadfrom+2)*-1;
         const madadnumto= madad.slice(madadto+1, madadto+2)*-1;
-		const tozaa=(madadnumto/madadnumfrom*schom).toFixed(2);
+	const tozaa=(madadnumto/madadnumfrom*schom).toFixed(2);
         
         if(isNaN(madadnumfrom) || isNaN(madadnumto)){return;}
 
         document.getElementById('frt1').innerHTML=formatDate(datefrom);
-		document.getElementById('frt2').innerHTML=formatDate(dateto);
+	document.getElementById('frt2').innerHTML=formatDate(dateto);
         document.getElementById('md1').innerHTML=formatdatefrom.slice(1);
         document.getElementById('md2').innerHTML=formatdateto.slice(1);
         document.getElementById('nm1').innerHTML=Number(madadnumfrom).toFixed(2);
@@ -306,17 +307,17 @@ function madadsug(){
 
 
                 
-				var x= madad.indexOf (Number(formatdate));
+		var x= madad.indexOf (Number(formatdate));
                 
                 //if(mads=2){x=x+2};
                 
-				const w= madad.slice(x+1, x+2)*-1;
-				const madadnow=madad.slice(madad.length-2,madad.length-1)*-1;
+		const w= madad.slice(x+1, x+2)*-1;
+		const madadnow=madad.slice(madad.length-2,madad.length-1)*-1;
                 
-				const td2 = document.createElement('td');
-				td2.textContent = Number(w).toFixed(2);
-				tr.appendChild(td2);
-				const td3 = document.createElement('td');
+		const td2 = document.createElement('td');
+		td2.textContent = Number(w).toFixed(2);
+		tr.appendChild(td2);
+		const td3 = document.createElement('td');
                 td3.textContent = Number(Number((row[1]*madadnow/w)).toFixed(2)).toLocaleString();
                  tr.appendChild(td3);
 				}
