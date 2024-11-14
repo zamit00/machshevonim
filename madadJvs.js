@@ -24,7 +24,7 @@ function chooseradio(){
         document.getElementById("dateto").value='';
         document.getElementById("datefrom").value='';
         document.getElementById("schom").value='';
-	document.getElementById(" input-excel").style.display='none';
+	document.getElementById("input-excel").style.display='none';
 	document.getElementById("lblup").style.display='none';
 	document.getElementById('frt1').innerHTML='';
     	document.getElementById('frt2').innerHTML='';
@@ -47,7 +47,7 @@ function chooseradio(){
         document.getElementById("dateto").value='';
         document.getElementById("datefrom").value='';
         document.getElementById("schom").value='';
-	document.getElementById(" input-excel").style.display='block';
+	document.getElementById("input-excel").style.display='block';
 	document.getElementById("lblup").style.display='block';
 	document.getElementById('frt1').innerHTML='';
     	document.getElementById('frt2').innerHTML='';
