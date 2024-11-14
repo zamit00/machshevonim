@@ -1,7 +1,7 @@
 .main{
   width: 600px;
   height: 710px;
-  border: 2px double black;
+  border: 2px double blue;
   display: flex;
   flex-direction: column;
 
