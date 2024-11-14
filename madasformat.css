@@ -103,11 +103,13 @@ th{
 }
 .btnup{
   width: 125px;
-  height: 30px;
+  height: 40px;
   font-size: 20px;
   margin-right: 140px;
+  display:none;
 }
 .lblup{
-  margin-right: 100px; 
+  margin-right: 100px;
+  display:none;
 }
 
