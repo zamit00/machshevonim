@@ -26,6 +26,14 @@ function chooseradio(){
         document.getElementById("schom").value='';
 	document.getElementById(" input-excel").style.display='none';
 	document.getElementById("lblup").style.display='none';
+	document.getElementById('frt1').innerHTML='';
+    	document.getElementById('frt2').innerHTML='';
+    	document.getElementById('md1').innerHTML='';
+    	document.getElementById('md2').innerHTML='';
+    	document.getElementById('nm1').innerHTML='';
+    	document.getElementById('nm2').innerHTML='';
+    	document.getElementById('toz').innerHTML='';
+    	document.getElementById('toza').innerHTML=''; 
         
     }
     else{
@@ -40,6 +48,14 @@ function chooseradio(){
         document.getElementById("schom").value='';
 	document.getElementById(" input-excel").style.display='block';
 	document.getElementById("lblup").style.display='block';
+	document.getElementById('frt1').innerHTML='';
+    	document.getElementById('frt2').innerHTML='';
+    	document.getElementById('md1').innerHTML='';
+    	document.getElementById('md2').innerHTML='';
+    	document.getElementById('nm1').innerHTML='';
+    	document.getElementById('nm2').innerHTML='';
+    	document.getElementById('toz').innerHTML='';
+    	document.getElementById('toza').innerHTML=''; 
     }
 }
 function madadchange(){
