@@ -15,7 +15,7 @@ function chooseradio(){
     const madad = document.getElementById("sugmadad");
     
     if(radio.checked){
-
+       location.reload();
         document.getElementById("hashev").disabled=false;
         document.getElementById("input-excel").disabled=true;
         document.getElementById("dateto").disabled=false;
@@ -38,6 +38,7 @@ function chooseradio(){
         
     }
     else{
+	
         madad.value=1;
         document.getElementById("hashev").disabled=true;
         document.getElementById("input-excel").disabled=false;
