@@ -67,12 +67,12 @@ body{
   height: 30px;
   font-size: 25px;
 }
-#schom{max-width: 190px;}
+#schom{max-width: 250px;}
 .btn{
   width: 100px;
   height: 30px;
   font-size: 25px;
-  margin: 25px 240px 25px 25px;
+  margin: 25px 230px 25px 25px;
 }
 .tbltozaa{
   width: 600px;
@@ -112,4 +112,8 @@ th{
   margin-right: 100px;
   display:none;
 }
-
+.btnlblup{
+   display: flex;
+  justify-content: space-evenly;
+}
+  
