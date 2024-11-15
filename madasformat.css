@@ -73,6 +73,9 @@ body{
   height: 30px;
   font-size: 25px;
   margin: 25px 230px 25px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tbltozaa{
   width: 600px;
