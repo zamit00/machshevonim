@@ -28,7 +28,7 @@ function back() {
 
 function chooseradio(){
     const radio = document.getElementById("boded");
-    const madad = document.getElementById("sugmadad");
+    const madadb = document.getElementById("sugmadad");
     
     if(radio.checked){
        location.reload();
@@ -55,7 +55,7 @@ function chooseradio(){
     }
     else{
 	
-        madad.value=1;
+        madadb.value=1;
         document.getElementById("hashev").disabled=true;
         document.getElementById("input-excel").disabled=false;
         document.getElementById("dateto").disabled=true;
