@@ -173,8 +173,8 @@ function madadsug(){
 
         document.getElementById('frt1').innerHTML=formatDate(datefrom);
 	document.getElementById('frt2').innerHTML=formatDate(dateto);
-        document.getElementById('md1').innerHTML=formatdatefrom.slice(1);
-        document.getElementById('md2').innerHTML=formatdateto.slice(1);
+        document.getElementById('md1').innerHTML=formatdatefrom.slice(1,formatdatefrom.length-4)+"."+formatdatefrom.slice(formatdatefrom.length-4);
+        document.getElementById('md2').innerHTML=formatdateto.slice(1,formatdateto.length-4)+"."+formatdateto.slice(formatdateto.length-4);
         document.getElementById('nm1').innerHTML=Number(madadnumfrom).toFixed(2);
         document.getElementById('nm2').innerHTML=Number(madadnumto).toFixed(2);
         document.getElementById('toz').innerHTML=Number(tozaa).toLocaleString();
