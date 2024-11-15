@@ -12,7 +12,7 @@ function back() {
 function test() {
  	fetch('data.txt')
           .then(response => response.text())
-          .then(data => { console.log(data);}
+          .then(data => { console.log(data)});
 		}
 
 
