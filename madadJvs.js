@@ -9,7 +9,7 @@ function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
 
-function test() {
+onload= function() {
  	fetch('madadim.txt')
           .then(response => response.text())
           .then(data => { console.log(data)});
