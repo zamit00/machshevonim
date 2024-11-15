@@ -2,24 +2,12 @@ const todayd=new Date();
 const day = String(todayd.getDate()).padStart(2,'0');
 const month=String(todayd.getMonth()+1).padStart(2,'0');
 const year=todayd.getFullYear();
-let madad;
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
 
 function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
-
-
-
-window.onload = function() {
-    fetch('madadim.txt')
-        .then(response => response.text())
-        .then(data => {
-            madad = data; // Assign the value to 'madad' variable
-        })
-        .catch(error => console.error('Error loading the file:', error));
-};
 
 function chooseradio(){
     const radio = document.getElementById("boded");
@@ -390,7 +378,7 @@ function madadsug(){
 
         }
 
-		var madada=[-11980,-10561.0495497966,-0.0292960904,-21980,-11081.6513850786,-0.030740227,-31980,-11647.5229451677,-0.0323099408,-41980,-12835.8532213549,-0.0356063396,
+		var madad=[-11980,-10561.0495497966,-0.0292960904,-21980,-11081.6513850786,-0.030740227,-31980,-11647.5229451677,-0.0323099408,-41980,-12835.8532213549,-0.0356063396,
             -51980,-14050.5908370128,-0.0389759917,-61980,-14699.4568925817,-0.0407759301,-71980,-15342.6642325497,-0.0425601714,-81980,-16608.3302886157,-0.0460710977,
             -91980,-17815.5229501391,-0.0494198203,-101980,-19775.3247865811,-0.0548562622,-111980,-21629.4972651398,-0.0599996908,-121980,-22923.4568992103,-0.0635891029,
             -11981,-24598.6970179917,-0.0682361775,-21981,-25953.0426924778,-0.071993099,-31981,-27197.1509283429,-0.0754442245,-41981,-30094.8207435225,-0.0834822889,
