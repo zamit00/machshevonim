@@ -23,7 +23,7 @@ window.onload = function() {
 
 function chooseradio(){
     const radio = document.getElementById("boded");
-    const madad = document.getElementById("sugmadad");
+    const madadsugchoose = document.getElementById("sugmadad");
     
     if(radio.checked){
        location.reload();
@@ -50,7 +50,7 @@ function chooseradio(){
     }
     else{
 	
-        madad.value=1;
+        madadsugchoose.value=1;
         document.getElementById("hashev").disabled=true;
         document.getElementById("input-excel").disabled=false;
         document.getElementById("dateto").disabled=true;
@@ -88,7 +88,7 @@ function madadsug(){
     return selval.value;  
 }
     function cnl(){
-        
+       
         const datefrom = new Date(document.getElementById('datefrom').value);
         const dateto = new Date(document.getElementById('dateto').value);
         
@@ -170,6 +170,7 @@ function madadsug(){
 	if(madadfrom===-1 || madadto===-1){
             alert("אין נתוני מדד לתקופה המבוקשת");return;
         }
+	 console.log(madadfrom); console.log(madadto);
         
         
         //if(x===0){alert("none");return;}
@@ -179,7 +180,8 @@ function madadsug(){
 	const madadnumfrom= madad.slice(madadfrom+1, madadfrom+2)*-1;
         const madadnumto= madad.slice(madadto+1, madadto+2)*-1;
 	const tozaa=(madadnumto/madadnumfrom*schom).toFixed(2);
-        
+        console.log(madadnumfrom); console.log(madadnumto);
+	    
         if(isNaN(madadnumfrom) || isNaN(madadnumto)){return;}
 
         document.getElementById('frt1').innerHTML=formatDate(datefrom);
