@@ -9,6 +9,12 @@ function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
 
+function test() {
+ 	fetch('data.txt')
+          .then(response => response.text())
+          .then(data => { console.log(data);}
+		}
+
 
 function chooseradio(){
     const radio = document.getElementById("boded");
