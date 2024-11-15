@@ -10,7 +10,7 @@ function back() {
 }
 
 function test() {
- 	fetch('data.txt')
+ 	fetch('madad.txt')
           .then(response => response.text())
           .then(data => { console.log(data)});
 		}
