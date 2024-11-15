@@ -4,9 +4,9 @@ const month=String(todayd.getMonth()+1).padStart(2,'0');
 const year=todayd.getFullYear();
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
-fetch('madadim.txt')
+/*fetch('madadim.txt')
           .then(response => response.text())
-          .then(dataD => {const madad=dataD});
+          .then(dataD => {const madad=dataD});*/
 function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
