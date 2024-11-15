@@ -6,12 +6,12 @@ document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
 /*fetch('madadim.txt')
           .then(response => response.text())
-          .then(dataD => {const madad=dataD});*/
+          .then(dataD => {var madad=dataD});*/
 window.onload = function() {
     fetch('madadim.txt')
         .then(response => response.text())
         .then(dataD => {
-            const madad = dataD;
+            var madad = dataD;
             console.log(madad); // You can log or use `madad` here
         })
         .catch(error => console.error("Error fetching data:", error));
