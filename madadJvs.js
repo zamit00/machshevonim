@@ -2,6 +2,7 @@ const todayd=new Date();
 const day = String(todayd.getDate()).padStart(2,'0');
 const month=String(todayd.getMonth()+1).padStart(2,'0');
 const year=todayd.getFullYear();
+let madad;
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
 
@@ -9,12 +10,16 @@ function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
 
-onload= function() {
- 	fetch('madadim.txt')
-          .then(response => response.text())
-          .then(data => { var madad =data});
-		}
 
+
+window.onload = function() {
+    fetch('madadim.txt')
+        .then(response => response.text())
+        .then(data => {
+            madad = data; // Assign the value to 'madad' variable
+        })
+        .catch(error => console.error('Error loading the file:', error));
+};
 
 function chooseradio(){
     const radio = document.getElementById("boded");
