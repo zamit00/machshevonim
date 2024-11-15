@@ -4,22 +4,6 @@ const month=String(todayd.getMonth()+1).padStart(2,'0');
 const year=todayd.getFullYear();
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
-/*fetch('madadim.txt')
-          .then(response => response.text())
-          .then(dataD => {var madad=dataD});
-window.onload = function() {
-    fetch('madadim.txt')
-        .then(response => response.text())
-        .then(dataD => {
-            var madad = dataD;
-            console.log(madad); // You can log or use `madad` here
-        })
-        .catch(error => console.error("Error fetching data:", error));
-};
-
-*/
-
-
 
 function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
@@ -28,7 +12,7 @@ function back() {
 
 function chooseradio(){
     const radio = document.getElementById("boded");
-    const madadb = document.getElementById("sugmadad");
+    const madad = document.getElementById("sugmadad");
     
     if(radio.checked){
        location.reload();
@@ -55,7 +39,7 @@ function chooseradio(){
     }
     else{
 	
-        madadb.value=1;
+        madad.value=1;
         document.getElementById("hashev").disabled=true;
         document.getElementById("input-excel").disabled=false;
         document.getElementById("dateto").disabled=true;
@@ -93,7 +77,6 @@ function madadsug(){
     return selval.value;  
 }
     function cnl(){
-	    
         
         const datefrom = new Date(document.getElementById('datefrom').value);
         const dateto = new Date(document.getElementById('dateto').value);
@@ -204,7 +187,6 @@ function madadsug(){
         
     
         function yavee(e) {
-		
             
             const file = e.target.files[0];
 
@@ -533,5 +515,4 @@ function madadsug(){
             
             
 ];
-
 
