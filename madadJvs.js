@@ -78,7 +78,7 @@ function madadsug(){
 }
     function cnl(){
 	    
-        fetch('data.txt')
+        fetch('madadim.txt')
           .then(response => response.text())
           .then(data => {const madad=data});
         const datefrom = new Date(document.getElementById('datefrom').value);
