@@ -1,0 +1,159 @@
+html{box-sizing:border-box}
+*,*:before,*:after{box-sizing:inherit}
+body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
+    box-sizing: border-box;display: flex;flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+
+}
+.colSmall1{width:8.33333%}.colSmall2{width:16.66666%}.colSmall3{width:24.99999%}.colSmall4{width:33.33333%}
+.colSmall5{width:41.66666%}.colSmall6{width:49.99999%}.colSmall7{width:58.33333%}.colSmall8{width:66.66666%}
+.colSmall9{width:74.99999%}.colSmall10{width:83.33333%}.colSmall11{width:91.66666%}.colSmall12{width:99.99999%} 
+
+.col1{width:8.33333%}.col2{width:16.66666%}.col3{width:24.99999%}.col4{width:33.33333%}
+.col5{width:41.66666%}.col6{width:49.99999%}.col7{width:58.33333%}.col8{width:66.66666%}
+.col9{width:74.99999%}.col10{width:83.33333%}.col11{width:91.66666%}.col12{width:99.99999%} 
+
+@media (min-width:768px){
+.colComp1{width:8.33333%}.colComp2{width:16.66666%}.colComp3{width:24.99999%}.colComp4,.zach-third{width:33.33333%}
+.colComp5{width:41.66666%}.colComp6,.zach-half{width:49.99999%}.colComp7{width:58.33333%}.colComp8,.zach-twothird{width:66.66666%}
+.colComp9,.zach-threequarter{width:74.99999%}.colComp10{width:83.33333%}.colComp11{width:91.66666%}.colComp12,nav{width:99.99999%}
+.main{width:500px}
+
+
+@media (max-width:768px){.colMobile1,.colMobile2,.colMobile3,.colMobile4{width:100%}
+.colMobile5,.colMobile6,.colMobile7{width:100%}.colMobile8,.colMobile9,
+.colMobile10,.colMobile11,.colMobile12,nav{width:99.99999%}
+                         
+.tozaot{
+    font-size: 30px;
+}
+.tkf{
+    margin-bottom: 10px;
+}
+}
+nav{
+    height: 15%;
+    background-color: blue;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+  } 
+  #koteret{
+    margin-bottom: 15px;
+  }
+p{
+    font-size: xx-large;
+    margin-bottom: 0px;
+    
+}
+#section{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin-right: 20px;
+    
+}
+.radioButtons,.schomim{
+    display: flex;flex-direction: column;
+    justify-content: center;
+    margin-top: -15px;
+}
+input{
+    height: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+.select{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+#selectTkofa{
+    height: 20px;
+    width: 50px;
+    margin-right: 50px;
+    
+    
+}
+table,tr{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    min-width: 100%;
+    min-height: 30%;
+}
+td{
+    min-width:50%
+    min-height: 30px;
+}
+
+h4{
+    margin:0 ;padding: 5px;
+}
+#tbltozaot{
+    margin: 0px;
+    border-spacing: 10px;
+}
+.back{
+    position: fixed;
+    top: 30px;
+    right:20px;
+    border: 1px solid grey;
+    width:150px;
+    height: auto;
+}
+.tozaot{
+    margin-top: 25px;
+}
+#tbltozaot, #tbltozaot td, #tbltozaot tr{
+    border: 1px solid blue;
+    border-collapse: collapse;
+    
+}
+
+/* עדכונים ל-CSS */
+
+/* התאמה לרוחב מסך קטן */
+@media (max-width: 480px) {
+    body {
+        font-size: 18px; /* הקטנת פונטים */
+        margin: 0; /* התאמה למכשירים קטנים */
+        padding: 0;
+    }
+
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .back {
+        position: relative;
+        width: auto;
+        margin: 10px 0;
+    }
+
+    #section {
+        margin: 10px;
+        align-items: stretch;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .tozaot {
+        font-size: 22px; /* התאמה לקריאות בטלפונים */
+        margin: 10px;
+    }
+
+    #tbltozaot td {
+        font-size: 18px; /* הקטנה נוספת */
+        padding: 5px;
+    }
+}
