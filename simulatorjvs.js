@@ -12,9 +12,8 @@ window.onload = function() {
     sumsum();
     }
 
-function gotohome(){
-    window.location.href = 'index.html';
-   
+function back() {
+  window.location.href = "https://zamit00.github.io/machshevonim/";
 }
 
 
