@@ -1,6 +1,9 @@
 function mdd(){
 	 window.location.href = "https://zamit00.github.io/machshevonim/madad.html";
 }
+function derib(){
+	 window.location.href = "https://zamit00.github.io/machshevonim/simulator.html";
+}
 
 function radiochange(){
 	let i ;
