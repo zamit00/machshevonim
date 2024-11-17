@@ -110,4 +110,12 @@ h4{
     margin: 0px;
     border-spacing: 10px;
 }
-
+.back{
+    position: fixed;
+    top: 30px;
+    right:20px;
+    border: 1px solid grey;
+    width:150px;
+    height: auto;
+}
+    
