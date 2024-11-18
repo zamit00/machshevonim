@@ -21,17 +21,6 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
 .colComp1{width:8.33333%}.colComp2{width:16.66666%}.colComp3{width:24.99999%}.colComp4,.zach-third{width:33.33333%}
 .colComp5{width:41.66666%}.colComp6,.zach-half{width:49.99999%}.colComp7{width:58.33333%}.colComp8,.zach-twothird{width:66.66666%}
 .colComp9,.zach-threequarter{width:74.99999%}.colComp10{width:83.33333%}.colComp11{width:91.66666%}.colComp12,nav{width:99.99999%}
-.main{width:500px}
-#hashev{
-    margin-right: 22.5%;
-    text-align: center;
-    vertical-align: middle;}
-    .tozaot{
-        position: fixed;
-        top: 15%;
-        right: 40%;
-        z-index: 1;
-    }
     .back{
         position: relative;
         top: 10px;
