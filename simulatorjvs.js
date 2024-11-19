@@ -168,7 +168,7 @@ function sumsum() {
             tr.appendChild(td);
             }
     
-       par= document.createElement("p"); 
+      /* par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
        tablediv.appendChild(par);
         
@@ -204,6 +204,7 @@ function sumsum() {
             td.style.backgroundColor="green";
             td.style.color="yellow";
       }
+      */
     
   
 }
