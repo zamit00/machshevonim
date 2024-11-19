@@ -3,7 +3,7 @@ window.onload = function() {
     
     const select=document.getElementById('selectTkofa');
     const dmn=document.getElementById('dmn');
-    const simulazya=document.getElementById('selectRibit');
+    
     
     for (let i = 1; i <= 30; i++) {
         let option = document.createElement('option');
@@ -18,21 +18,12 @@ window.onload = function() {
         option.textContent = Math.round(i*100)/100;  
         dmn.appendChild(option);  // מוסיף את האופציה ל-select
       }
-    for (let i = 1; i <= 21; i++) {
-        let option = document.createElement('option');
-        option.value = i/100;  
-        option.textContent = i + "%";  
-        simulazya.appendChild(option);  // מוסיף את האופציה ל-select
-      }
-    /*simulazya.value=0.04;simulazya.innerText="4%";*/
-    document.getElementById('tozaotsim').style.display="block";
     sumsum();
     }
    
 function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
-
 
 function sumsum() {
             
@@ -68,8 +59,7 @@ function sumsum() {
    sum10=hishuv(x1,x2,z,10);
    sum20=hishuv(x1,x2,z,20);
    sum30=hishuv(x1,x2,z,30);
-  /* z= simul.vlue-dn/100;
-   sumsimul=hishuv(x1,x2,z,30);*/
+ 
     if (isNaN(sum) ) {alert('סכומים לא תקינים');hp.value=1000;tash.value=200;;return;}
         //let integerPart=part(sum);
        console.log(sum.toLocaleString());
@@ -178,39 +168,7 @@ function sumsum() {
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             tr.appendChild(td);
             }
-            /* document.getElementById('shuvySil').innerText= parseInt(sumsimul).toLocaleString() + shach;*/
-       
-            
         }
-    
-        /*
-        selectsim.onchange="sumsum()" 
-
-        let element=document.getElementById('selsim');
-        let sumsim;let rsim;
-         
-        if(element && element.value){
-            rsim=(element.value-dn)/100;
-            sumsim=hishuv(x1,x2,rsim,x3);
-            tr=document.createElement("tr");
-            table.appendChild(tr);
-            td=document.createElement("td");
-            td.style.border="1px solid blue";
-            td.style.backgroundColor="green";
-            td.style.color="yellow";
-            td.innerHTML="שווי השקעה ריבית סימולציה";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.style.border="1px solid blue";
-            td.innerText=parseInt(sumsim).toLocaleString() + shach;
-            tr.appendChild(td);
-            td.style.backgroundColor="green";
-            td.style.color="yellow";
-      }
-      */
-    
-  
-}
 
 function toggleTextboxes() {
 const text1 = document.getElementById("schomHadPeami");
