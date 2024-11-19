@@ -19,7 +19,7 @@ window.onload = function() {
     
     sumsum();
     }
-
+    dmn.value=0.8;
 function back() {
   window.location.href = "https://zamit00.github.io/machshevonim/";
 }
@@ -32,7 +32,7 @@ function sumsum() {
     const tash=document.getElementById("schomHodshi");
     let x1 = parseInt(hp.value);
     let x2 = parseInt(tash.value);
-    let dn =document.getElementId("dmn").value;
+    let dn =document.getElementById("dmn").value;
      
     //let ribitchoose=document.getElementById("selectribit");
     //let ribit=ribitchoose.value;
