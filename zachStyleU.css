@@ -35,13 +35,13 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
    
         body {font-size: 16px;line-height: 1.5;}
       
-        .schomim,.radioButtons,.radio,h3,table,.colMobile4,p,.tozaot
+        .schomim,.radioButtons,.radio,h3,.colMobile4,p,.tozaot
         ,.tbltozaot {width: 100%; padding: 0 15px;}
       
         p {
           font-size: 20px;
         }
-      
+      table{width: 100%;}
         #koteret {
           text-align: center;
           padding: 10px;
