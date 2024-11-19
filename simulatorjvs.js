@@ -183,6 +183,7 @@ function sumsum() {
         selectsim.appendChild(option);  // מוסיף את האופציה ל-select
             
         }
+        /*
         selectsim.onchange="sumsum()" 
 
         let element=document.getElementById('selsim');
