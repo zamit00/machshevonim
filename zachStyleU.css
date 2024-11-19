@@ -110,9 +110,10 @@ input{
 #selectTkofa{
     height: 20px;
     width: 50px;
-    margin-right: 50px;   
-    
-}
+    margin-right: 50px;}
+#dmn{height: 20px;
+    width: 50px;
+    margin-right: 70px;}
 }
 
 
