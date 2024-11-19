@@ -74,6 +74,7 @@ function sumsum() {
        par.innerText="חישוב לפי ריבית של 4 אחוזים:";
        tablediv.appendChild(par);
        table= document.createElement("table");
+        table.id="tbltoz";
        tablediv.appendChild(table);
        
         
@@ -170,7 +171,7 @@ function sumsum() {
     
        par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
-       tablediv.appendChild(par);
+       
         
        selectsim =document.createElement("select");
         select.id="selsim";
@@ -184,6 +185,7 @@ function sumsum() {
             
         }
         /*
+        tbltoz
         selectsim.onchange="sumsum()" 
 
         let element=document.getElementById('selsim');
