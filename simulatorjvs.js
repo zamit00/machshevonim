@@ -1,5 +1,16 @@
 
 window.onload = function() { 
+
+  // בודקים אם מדובר במכשיר נייד
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+     document.getElementById('back').display="block";
+  } else {
+    document.getElementById('back').display="none";
+  }
+
+   
     
     const select=document.getElementById('selectTkofa');
     const dmn=document.getElementById('dmn');
