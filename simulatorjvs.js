@@ -61,7 +61,7 @@ function sumsum() {
        const tablediv= document.getElementById("tozaot");
        tablediv.innerHTML=""; 
        table= document.createElement("table");
-       table.style.border="1px solid blacke";
+       table.style.border="1px solid blue";
        tablediv.appendChild(table);
        
         
@@ -70,11 +70,11 @@ function sumsum() {
                 tr=document.createElement("tr");
                 table.appendChild(tr);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText="סכום חד פעמי";
                 tr.appendChild(td);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText= x1.toLocaleString()+shach;
                 tr.appendChild(td);
             }
@@ -82,33 +82,33 @@ function sumsum() {
                 tr=document.createElement("tr");
                 table.appendChild(tr);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText="סך הפקדות בתשלומים";
                 tr.appendChild(td);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText=(x2*x3*12).toLocaleString() + shach;
                 tr.appendChild(td);
             }
                 tr=document.createElement("tr");
                 table.appendChild(tr);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText="סך השקעה";
                 tr.appendChild(td);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
                 tr.appendChild(td);
                 
                 tr=document.createElement("tr");
                 table.appendChild(tr);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
                 tr.appendChild(td);
                 td=document.createElement("td");
-                td.style.border="1px solid blacke";
+                td.style.border="1px solid blue";
                 td.innerText=parseInt(sum).toLocaleString() + shach;
                 tr.appendChild(td);
 
@@ -117,11 +117,11 @@ function sumsum() {
             tr=document.createElement("tr");
             table.appendChild(tr);
             td=document.createElement("td");
-            td.style.border="1px solid blacke";
+            td.style.border="1px solid blue";
              td.innerHTML="שווי השקעה ל - 10 שנים";
             tr.appendChild(td);
             td=document.createElement("td");
-            td.style.border="1px solid blacke";
+            td.style.border="1px solid blue";
             td.innerText=parseInt(sum10).toLocaleString() + shach;
             tr.appendChild(td);
             }
@@ -130,11 +130,11 @@ function sumsum() {
             tr=document.createElement("tr");
             table.appendChild(tr);
             td=document.createElement("td");
-            td.style.border="1px solid blacke";
+            td.style.border="1px solid blue";
             td.innerHTML="שווי השקעה ל - 20 שנים";
             tr.appendChild(td);
             td=document.createElement("td");
-            td.style.border="1px solid blacke";
+            td.style.border="1px solid blue";
             td.innerText=parseInt(sum20).toLocaleString() + shach;
             tr.appendChild(td);
             }
@@ -143,11 +143,11 @@ function sumsum() {
             tr=document.createElement("tr");
             table.appendChild(tr);
             td=document.createElement("td");
-            td.style.border="1px solid blacke";
+            td.style.border="1px solid blue";
             td.innerHTML="שווי השקעה ל - 30 שנים";
             tr.appendChild(td);
             td=document.createElement("td");
-            td.style.border="1px solid blacke";
+            td.style.border="1px solid blue";
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             tr.appendChild(td);
             }
