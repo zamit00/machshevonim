@@ -2,6 +2,7 @@
 window.onload = function() { 
     
     const select=document.getElementById('selectTkofa')
+    const dmn=document.getElementById('dmn')
     for (let i = 1; i <= 30; i++) {
         let option = document.createElement('option');
         option.value = i;  // הערך של האופציה
@@ -9,6 +10,13 @@ window.onload = function() {
         select.appendChild(option);  // מוסיף את האופציה ל-select
       }
       select.value=5;
+    for (let i = 0; i <= 1; i+=0.05) {
+        let option = document.createElement('option');
+        option.value = i;  // הערך של האופציה
+        option.textContent = i;  // התצוגה של האופציה
+        dmn.appendChild(option);  // מוסיף את האופציה ל-select
+      }
+    dmn.value=0.8;
     sumsum();
     }
 
@@ -24,8 +32,8 @@ function sumsum() {
     const tash=document.getElementById("schomHodshi");
     let x1 = parseInt(hp.value);
     let x2 = parseInt(tash.value);
-    //let dn = parseFloat(document.getElementsByName("dmeynihul")[0].value);
-    let dn=0;
+    let dn = parseFloat(document.getElementsByName("dmn")[0].value);
+    
     //let ribitchoose=document.getElementById("selectribit");
     //let ribit=ribitchoose.value;
     
