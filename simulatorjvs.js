@@ -76,14 +76,14 @@ function sumsum() {
     toz10.innerText= parseInt(sum10).toLocaleString()+ shach;
     toz20.innerText= parseInt(sum20).toLocaleString()+ shach;
     toz30.innerText= parseInt(sum30).toLocaleString()+ shach;
-    
+    /*
     if(x3<10){document.getElementById("tr10").style.display = "block";}
     else{  document.getElementById("tr10").style.display = "none";}
     if(x3<20){document.getElementById("tr20").style.display = "block";}
      else{  document.getElementById("tr20").style.display = "none";}
     if(x3<30){document.getElementById("tr30").style.display = "block";}
     else{  document.getElementById("tr30").style.display = "none";}
-    
+    */
 }
 
 function toggleTextboxes() {
