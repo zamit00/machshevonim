@@ -168,15 +168,16 @@ function sumsum() {
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             tr.appendChild(td);
             }
-    
+
+       const simuldiv= document.getElementById("simul") 
        par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
-       alert('ok');
+       tablediv.appendChild(simuldiv);
         
        selectsim =document.createElement("select");
         selectsim.id="selsim";
         selectsim.style.marginRight="80px";
-        tablediv.appendChild(selectsim);
+        simuldiv.appendChild(selectsim);
         for (let i = 1; i <= 20; i++) {
         let option = document.createElement('option');
         option.value = i;  // הערך של האופציה
@@ -184,8 +185,8 @@ function sumsum() {
         selectsim.appendChild(option);  // מוסיף את האופציה ל-select
             
         }
+    
         /*
-        tbltoz
         selectsim.onchange="sumsum()" 
 
         let element=document.getElementById('selsim');
