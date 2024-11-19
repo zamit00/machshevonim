@@ -57,33 +57,108 @@ function sumsum() {
        console.log(sum20.toLocaleString());
        console.log(sum30.toLocaleString());
 
+       var table; var td; var tr;
+       const tablediv= document.getElementById("tozaot");
+       tablediv.innerHTML=""; 
+       table= document.createElement("table");
+       table.style.border="1px solid blacke";
+       tablediv.appendChild(table);
+       
+        
+        
+        if(x1>0){
+                tr=document.createElement("tr");
+                table.appendChild(tr);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText="סכום חד פעמי";
+                tr.appendChild(td);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText= x1.toLocaleString()+shach;
+                tr.appendChild(td);
+            }
+        if(x2>0){
+                tr=document.createElement("tr");
+                table.appendChild(tr);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText="סך הפקדות בתשלומים";
+                tr.appendChild(td);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText=(x2*x3*12).toLocaleString() + shach;
+                tr.appendChild(td);
+            }
+                tr=document.createElement("tr");
+                table.appendChild(tr);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText="סך השקעה";
+                tr.appendChild(td);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
+                tr.appendChild(td);
+                
+                tr=document.createElement("tr");
+                table.appendChild(tr);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
+                tr.appendChild(td);
+                td=document.createElement("td");
+                td.style.border="1px solid blacke";
+                td.innerText=parseInt(sum).toLocaleString() + shach;
+                tr.appendChild(td);
 
-       const toz= document.getElementById("toz");
-       const toz10= document.getElementById("toz10");
-       const toz20= document.getElementById("toz20");
-       const toz30= document.getElementById("toz30");
-       const kerenhadp= document.getElementById("kerenhadp");
-       const kerentash= document.getElementById("kerentash");
-       const kerensach= document.getElementById("kerensach");
-       const shuvy= document.getElementById("shuvy");
 
-       kerenhadp.innerText=x1.toLocaleString()+shach;
-       kerentash.innerText=(x2*x3*12).toLocaleString() + shach;
-       kerensach.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
-       shuvy.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
-       toz.innerText= parseInt(sum).toLocaleString() + shach;
+            if(x3<10){
+            tr=document.createElement("tr");
+            table.appendChild(tr);
+            td=document.createElement("td");
+            td.style.border="1px solid blacke";
+             td.innerHTML="שווי השקעה ל - 10 שנים";
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.style.border="1px solid blacke";
+            td.innerText=parseInt(sum10).toLocaleString() + shach;
+            tr.appendChild(td);
+            }
+   
+            if(x3<20){
+            tr=document.createElement("tr");
+            table.appendChild(tr);
+            td=document.createElement("td");
+            td.style.border="1px solid blacke";
+            td.innerHTML="שווי השקעה ל - 20 שנים";
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.style.border="1px solid blacke";
+            td.innerText=parseInt(sum20).toLocaleString() + shach;
+            tr.appendChild(td);
+            }
     
-    toz10.innerText= parseInt(sum10).toLocaleString()+ shach;
-    toz20.innerText= parseInt(sum20).toLocaleString()+ shach;
-    toz30.innerText= parseInt(sum30).toLocaleString()+ shach;
-    /*
-    if(x3<10){document.getElementById("tr10").style.display = "block";}
-    else{  document.getElementById("tr10").style.display = "none";}
-    if(x3<20){document.getElementById("tr20").style.display = "block";}
-     else{  document.getElementById("tr20").style.display = "none";}
-    if(x3<30){document.getElementById("tr30").style.display = "block";}
-    else{  document.getElementById("tr30").style.display = "none";}
-    */
+            if(x3<30){
+            tr=document.createElement("tr");
+            table.appendChild(tr);
+            td=document.createElement("td");
+            td.style.border="1px solid blacke";
+            td.innerHTML="שווי השקעה ל - 30 שנים";
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.style.border="1px solid blacke";
+            td.innerText=parseInt(sum30).toLocaleString() + shach;
+            tr.appendChild(td);
+            }
+    
+   
+    
+       
+
+       
+    
+  
 }
 
 function toggleTextboxes() {
