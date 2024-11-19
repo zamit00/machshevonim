@@ -174,7 +174,7 @@ function sumsum() {
        
         
        selectsim =document.createElement("select");
-        select.id="selsim";
+        selectsim.id="selsim";
         selectsim.style.marginRight="80px";
         tablediv.appendChild(selectsim);
         for (let i = 1; i <= 20; i++) {
