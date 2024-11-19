@@ -1,8 +1,10 @@
 
 window.onload = function() { 
     
-    const select=document.getElementById('selectTkofa')
-    const dmn=document.getElementById('dmn')
+    const select=document.getElementById('selectTkofa');
+    const dmn=document.getElementById('dmn');
+    const simul=document.getElementById('simul');
+    
     for (let i = 1; i <= 30; i++) {
         let option = document.createElement('option');
         option.value = i;  // הערך של האופציה
