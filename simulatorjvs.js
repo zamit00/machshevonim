@@ -3,6 +3,7 @@ window.onload = function() {
     
     const select=document.getElementById('selectTkofa');
     const dmn=document.getElementById('dmn');
+    const simulazya=document.getElementById('selectRibit');
     
     for (let i = 1; i <= 30; i++) {
         let option = document.createElement('option');
@@ -17,7 +18,14 @@ window.onload = function() {
         option.textContent = Math.round(i*100)/100;  
         dmn.appendChild(option);  // מוסיף את האופציה ל-select
       }
-    
+    for (let i = 1; i <= 21; i++) {
+        let option = document.createElement('option');
+        option.value = i/100;  
+        option.textContent = i + "%";  
+        simulazya.appendChild(option);  // מוסיף את האופציה ל-select
+      }
+    simulazya.value=0.04;simulazya.innerText="4%";
+    document.getElementById('tozaotsim').style.display="block";
     sumsum();
     }
    
@@ -34,7 +42,7 @@ function sumsum() {
     let x1 = parseInt(hp.value);
     let x2 = parseInt(tash.value);
     let dn =document.getElementById("dmn").value;
-    const simul=document.getElementById('simul');
+    const simul=document.getElementById('selectRibit');
     
     //let ribitchoose=document.getElementById("selectribit");
     //let ribit=ribitchoose.value;
@@ -55,11 +63,13 @@ function sumsum() {
   //  if (document.getElementById("rd33").checked){z1=0.02-dn/100;}
   //  if (document.getElementById("rd44").checked){z1=ribit-dn/100;}
     
-   let sum;let sum10;let sum20;let sum30;
+   let sum;let sum10;let sum20;let sum30;let sumsimul;
    sum=hishuv(x1,x2,z,x3);
    sum10=hishuv(x1,x2,z,10);
    sum20=hishuv(x1,x2,z,20);
    sum30=hishuv(x1,x2,z,30);
+   z= simul.vlue-dn/100;
+   sumsimul=hishuv(x1,x2,z,30);
     if (isNaN(sum) ) {alert('סכומים לא תקינים');hp.value=1000;tash.value=200;;return;}
         //let integerPart=part(sum);
        console.log(sum.toLocaleString());
@@ -168,21 +178,8 @@ function sumsum() {
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             tr.appendChild(td);
             }
-
+             document.getElementById('shuvySil').innerText= parseInt(sumsimul).toLocaleString() + shach;
        
-       par= document.createElement("p"); 
-       par.innerText="בחר ריבית אחרת לסימולציה";
-       simul.appendChild(par);
-        
-       selectsim =document.createElement("select");
-        selectsim.id="selsim";
-        selectsim.style.marginRight="80px";
-        simul.appendChild(selectsim);
-        for (let i = 1; i <= 20; i++) {
-        let option = document.createElement('option');
-        option.value = i;  // הערך של האופציה
-        option.textContent = i + "%";  // התצוגה של האופציה
-        selectsim.appendChild(option);  // מוסיף את האופציה ל-select
             
         }
     
