@@ -3,8 +3,23 @@ function mdd(){
 }
 // פונקציה לפתיחת אתר בחלון צף
 function derib() {
-  window.open("https://zamit00.github.io/machshevonim/simulator.html", "popupWindow", "width=" + (window.innerWidth * 0.9)+",height=" + (window.innerHeight * 0.8) +",scrollbars=yes,resizable=yes");
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.open(
+      "https://zamit00.github.io/machshevonim/simulator.html",
+      "popupWindow",
+      "width=" + (window.innerWidth * 0.8) + ",height=" + (window.innerHeight * 0.6) + ",scrollbars=yes,resizable=yes"
+    );
+  } else {
+    // אם מדובר במחשב, גודל חלון אחר
+    window.open(
+      "https://zamit00.github.io/machshevonim/simulator.html",
+      "popupWindow",
+      "width=" + (window.innerWidth * 0.5) + ",height=" + (window.innerHeight * 0.6) + ",scrollbars=yes,resizable=yes"
+    );
+  }
 }
+
 
 
 
