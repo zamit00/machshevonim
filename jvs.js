@@ -18,12 +18,12 @@ function derib() {
     popupHeight = screenHeight * 0.6;
   } else {
     popupWidth = screenWidth * 0.3;
-    popupHeight = screenHeight * 0.6;
+    popupHeight = screenHeight * 0.9;
   }
 
   // מחשבים את המיקום של החלון במרכז המסך
   var left = (screenWidth - popupWidth) / 2;
-  var top = (screenHeight - popupHeight) / 2;
+  var top = (screenHeight - popupHeight);
 
   // פותחים את החלון במרכז המסך
   window.open(
