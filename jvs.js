@@ -3,7 +3,7 @@ function mdd(){
 }
 // פונקציה לפתיחת אתר בחלון צף
 function derib() {
-  window.open("https://zamit00.github.io/machshevonim/simulator.html", "popupWindow", "width=767,height=800,scrollbars=yes,resizable=yes");
+  window.open("https://zamit00.github.io/machshevonim/simulator.html", "popupWindow", "width=" + (window.innerWidth * 0.9),height=" + (window.innerHeight * 0.8) ",scrollbars=yes,resizable=yes");
 }
 
 
