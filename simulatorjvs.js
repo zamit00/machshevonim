@@ -171,7 +171,7 @@ function sumsum() {
     
        par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
-       
+       alert('ok');
         
        selectsim =document.createElement("select");
         selectsim.id="selsim";
