@@ -65,9 +65,12 @@ function sumsum() {
        console.log(sum20.toLocaleString());
        console.log(sum30.toLocaleString());
 
-       var table; var td; var tr;
+       var table; var td; var tr;let par;
        const tablediv= document.getElementById("tozaot");
        tablediv.innerHTML=""; 
+       par= document.createElement("p"); 
+       par.innerText="חשוב לפי ריבית של 4 אחוזים:";
+       tablediv.appendChild(par);
        table= document.createElement("table");
        tablediv.appendChild(table);
        
