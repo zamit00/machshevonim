@@ -168,7 +168,7 @@ function sumsum() {
             tr.appendChild(td);
             }
     
-      /* par= document.createElement("p"); 
+       par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
        tablediv.appendChild(par);
         
@@ -181,12 +181,14 @@ function sumsum() {
         option.value = i;  // הערך של האופציה
         option.textContent = i + "%";  // התצוגה של האופציה
         selectsim.appendChild(option);  // מוסיף את האופציה ל-select
+            
+        }
         selectsim.onchange="sumsum()" 
 
         let element=document.getElementById('selsim');
         let sumsim;let rsim;
          
-        if(element){
+        if(element && element.value){
             rsim=(element.value-dn)/100;
             sumsim=hishuv(x1,x2,rsim,x3);
             tr=document.createElement("tr");
