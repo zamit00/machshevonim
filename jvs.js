@@ -17,7 +17,7 @@ function derib() {
     popupWidth = screenWidth * 0.8;
     popupHeight = screenHeight * 0.6;
   } else {
-    popupWidth = screenWidth * 0.4;
+    popupWidth = screenWidth * 0.3;
     popupHeight = screenHeight * 0.6;
   }
 
