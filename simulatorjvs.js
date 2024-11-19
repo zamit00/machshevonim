@@ -181,8 +181,8 @@ text1.value=1000;text2.value=0;
 
 } else if (document.getElementById("beTashlumim").checked) {
    
-text1.disabled = false;
-text2.disabled = true;
+text1.disabled = true;
+text2.disabled = false;
 text1.value=0;text2.value=200;
 
 
