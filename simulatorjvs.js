@@ -104,10 +104,14 @@ function sumsum() {
                 table.appendChild(tr);
                 td=document.createElement("td");
                 td.style.border="1px solid blue";
+                td.style.backgroundColor="blue";
+                td.style.color="white";
                 td.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
                 tr.appendChild(td);
                 td=document.createElement("td");
                 td.style.border="1px solid blue";
+                td.style.backgroundColor="blue";
+                td.style.color="white";
                 td.innerText=parseInt(sum).toLocaleString() + shach;
                 tr.appendChild(td);
 
