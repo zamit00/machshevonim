@@ -16,7 +16,7 @@ window.onload = function() {
         option.textContent = Math.round(i*100)/100;  
         dmn.appendChild(option);  // מוסיף את האופציה ל-select
       }
-    dmn.value=0.8;
+    dmn.value=0.80;
     sumsum();
     }
 
@@ -33,7 +33,7 @@ function sumsum() {
     let x1 = parseInt(hp.value);
     let x2 = parseInt(tash.value);
     let dn = parseFloat(document.getElementsByName("dmn")[0].value);
-    
+     
     //let ribitchoose=document.getElementById("selectribit");
     //let ribit=ribitchoose.value;
     
