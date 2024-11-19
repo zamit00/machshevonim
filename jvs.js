@@ -3,22 +3,36 @@ function mdd(){
 }
 // פונקציה לפתיחת אתר בחלון צף
 function derib() {
+  // בודקים אם מדובר במכשיר נייד
   var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  // מחשבים את מידות המסך
+  var screenWidth = window.innerWidth;
+  var screenHeight = window.innerHeight;
+
+  // אם מדובר במכשיר נייד, גודל חלון שונה
+  var popupWidth, popupHeight;
+
   if (isMobile) {
-    window.open(
-      "https://zamit00.github.io/machshevonim/simulator.html",
-      "popupWindow",
-      "width=" + (window.innerWidth * 0.8) + ",height=" + (window.innerHeight * 0.6) + ",scrollbars=yes,resizable=yes"
-    );
+    popupWidth = screenWidth * 0.8;
+    popupHeight = screenHeight * 0.6;
   } else {
-    // אם מדובר במחשב, גודל חלון אחר
-    window.open(
-      "https://zamit00.github.io/machshevonim/simulator.html",
-      "popupWindow",
-      "width=" + (window.innerWidth * 0.5) + ",height=" + (window.innerHeight * 0.6) + ",scrollbars=yes,resizable=yes"
-    );
+    popupWidth = screenWidth * 0.4;
+    popupHeight = screenHeight * 0.6;
   }
+
+  // מחשבים את המיקום של החלון במרכז המסך
+  var left = (screenWidth - popupWidth) / 2;
+  var top = (screenHeight - popupHeight) / 2;
+
+  // פותחים את החלון במרכז המסך
+  window.open(
+    "https://zamit00.github.io/machshevonim/simulator.html",
+    "popupWindow",
+    "width=" + popupWidth + ",height=" + popupHeight + ",top=" + top + ",left=" + left + ",scrollbars=yes,resizable=yes"
+  );
 }
+
 
 
 
