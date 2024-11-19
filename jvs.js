@@ -1,9 +1,12 @@
 function mdd(){
 	 window.location.href = "https://zamit00.github.io/machshevonim/madad.html";
 }
-function derib(){
-	 window.location.href = "https://zamit00.github.io/machshevonim/simulator.html";
+// פונקציה לפתיחת אתר בחלון צף
+function derib() {
+  window.open("https://zamit00.github.io/machshevonim/simulator.html", "popupWindow", "width=767,height=800,scrollbars=yes,resizable=yes");
 }
+
+
 
 function radiochange(){
 	let i ;
