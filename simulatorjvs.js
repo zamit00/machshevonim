@@ -12,7 +12,7 @@ window.onload = function() {
       select.value=5;
     for (let i = 0; i <= 1.1; i+=0.05) {
         let option = document.createElement('option');
-        option.value = i;  // הערך של האופציה
+        option.value = Math.round(i*100)/100;  
         option.textContent = Math.round(i*100)/100;  
         dmn.appendChild(option);  // מוסיף את האופציה ל-select
       }
