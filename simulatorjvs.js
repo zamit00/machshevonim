@@ -69,7 +69,7 @@ function sumsum() {
        const tablediv= document.getElementById("tozaot");
        tablediv.innerHTML=""; 
        par= document.createElement("p"); 
-       par.innerText="חשוב לפי ריבית של 4 אחוזים:";
+       par.innerText="חישוב לפי ריבית של 4 אחוזים:";
        tablediv.appendChild(par);
        table= document.createElement("table");
        tablediv.appendChild(table);
@@ -166,7 +166,10 @@ function sumsum() {
             tr.appendChild(td);
             }
     
-   
+      /* par= document.createElement("p"); 
+       par.innerText="בחר ריבית אחרת לסימולציה";
+       tablediv.appendChild(par);*/
+        
     
        
 
