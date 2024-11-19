@@ -67,7 +67,7 @@ function sumsum() {
        console.log(sum20.toLocaleString());
        console.log(sum30.toLocaleString());
 
-       var table; var td; var tr;let par;
+       var table; var td; var tr;let par;let selectsim;
        const tablediv= document.getElementById("tozaot");
        tablediv.innerHTML=""; 
        par= document.createElement("p"); 
@@ -168,14 +168,42 @@ function sumsum() {
             tr.appendChild(td);
             }
     
-      /* par= document.createElement("p"); 
+       par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
-       tablediv.appendChild(par);*/
+       tablediv.appendChild(par);
         
-    
-       
+       selectsim =document.createElement("select");
+        select.id="selsim";
+        selectsim.style.marginRight="80px";
+        tablediv.appendChild(selectsim);
+        for (let i = 1; i <= 20; i++) {
+        let option = document.createElement('option');
+        option.value = i;  // הערך של האופציה
+        option.textContent = i + "%";  // התצוגה של האופציה
+        selectsim.appendChild(option);  // מוסיף את האופציה ל-select
+        selectsim.onchange="sumsum()" 
 
-       
+        let element=document.getElementById('selsim');
+        let sumsim;let rsim;
+         
+        if(element){
+            rsim=(element.value-dn)/100;
+            sumsim=hishuv(x1,x2,rsim,x3);
+            tr=document.createElement("tr");
+            table.appendChild(tr);
+            td=document.createElement("td");
+            td.style.border="1px solid blue";
+            td.style.backgroundColor="green";
+            td.style.color="yellow";
+            td.innerHTML="שווי השקעה ריבית סימולציה";
+            tr.appendChild(td);
+            td=document.createElement("td");
+            td.style.border="1px solid blue";
+            td.innerText=parseInt(sumsim).toLocaleString() + shach;
+            tr.appendChild(td);
+            td.style.backgroundColor="green";
+            td.style.color="yellow";
+      }
     
   
 }
