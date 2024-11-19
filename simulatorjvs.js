@@ -24,7 +24,7 @@ window.onload = function() {
         option.textContent = i + "%";  
         simulazya.appendChild(option);  // מוסיף את האופציה ל-select
       }
-    simulazya.value=0.04;simulazya.innerText="4%";
+    /*simulazya.value=0.04;simulazya.innerText="4%";*/
     document.getElementById('tozaotsim').style.display="block";
     sumsum();
     }
@@ -42,7 +42,7 @@ function sumsum() {
     let x1 = parseInt(hp.value);
     let x2 = parseInt(tash.value);
     let dn =document.getElementById("dmn").value;
-    const simul=document.getElementById('selectRibit');
+    /*let simul=document.getElementById('selectRibit');*/
     
     //let ribitchoose=document.getElementById("selectribit");
     //let ribit=ribitchoose.value;
@@ -68,8 +68,8 @@ function sumsum() {
    sum10=hishuv(x1,x2,z,10);
    sum20=hishuv(x1,x2,z,20);
    sum30=hishuv(x1,x2,z,30);
-   z= simul.vlue-dn/100;
-   sumsimul=hishuv(x1,x2,z,30);
+  /* z= simul.vlue-dn/100;
+   sumsimul=hishuv(x1,x2,z,30);*/
     if (isNaN(sum) ) {alert('סכומים לא תקינים');hp.value=1000;tash.value=200;;return;}
         //let integerPart=part(sum);
        console.log(sum.toLocaleString());
@@ -178,7 +178,7 @@ function sumsum() {
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             tr.appendChild(td);
             }
-             document.getElementById('shuvySil').innerText= parseInt(sumsimul).toLocaleString() + shach;
+            /* document.getElementById('shuvySil').innerText= parseInt(sumsimul).toLocaleString() + shach;*/
        
             
         }
