@@ -3,7 +3,6 @@ window.onload = function() {
     
     const select=document.getElementById('selectTkofa');
     const dmn=document.getElementById('dmn');
-    const simul=document.getElementById('simul');
     
     for (let i = 1; i <= 30; i++) {
         let option = document.createElement('option');
@@ -35,7 +34,8 @@ function sumsum() {
     let x1 = parseInt(hp.value);
     let x2 = parseInt(tash.value);
     let dn =document.getElementById("dmn").value;
-     
+    const simul=document.getElementById('simul');
+    
     //let ribitchoose=document.getElementById("selectribit");
     //let ribit=ribitchoose.value;
     
@@ -169,15 +169,15 @@ function sumsum() {
             tr.appendChild(td);
             }
 
-       const simuldiv= document.getElementById("simul") 
+       
        par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
-       simuldiv.appendChild(par);
+       simul.appendChild(par);
         
        selectsim =document.createElement("select");
         selectsim.id="selsim";
         selectsim.style.marginRight="80px";
-        simuldiv.appendChild(selectsim);
+        simul.appendChild(selectsim);
         for (let i = 1; i <= 20; i++) {
         let option = document.createElement('option');
         option.value = i;  // הערך של האופציה
