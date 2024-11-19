@@ -44,9 +44,6 @@ function sumsum() {
   //  if (document.getElementById("rd22").checked){z1=0.05-dn/100;}
   //  if (document.getElementById("rd33").checked){z1=0.02-dn/100;}
   //  if (document.getElementById("rd44").checked){z1=ribit-dn/100;}
-
-    
-   
     
    let sum;let sum10;let sum20;let sum30;
    sum=hishuv(x1,x2,z,x3);
@@ -75,67 +72,18 @@ function sumsum() {
        kerensach.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
        shuvy.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
        toz.innerText= parseInt(sum).toLocaleString() + shach;
-       if(x3<10){toz10.innerText= parseInt(sum10).toLocaleString()+ shach;}
-       if(x3<20){toz20.innerText= parseInt(sum20).toLocaleString()+ shach;}
-       if(x3<30){toz30.innerText= parseInt(sum30).toLocaleString()+ shach;}
-       // document.getElementById("lblfirst0").style.display = "block";
-
-        //sum=hishuv(x1,x2,z1,x3);
-        //integerPart=part(sum);
-   
-       // document.getElementById("lblfirst00").textContent=textopen + x3 + textnext + integerPart + shach;
-       // document.getElementById("lblfirst00").style.display = "block";
-  
-
-    if(x3<10){
-        /*document.getElementById("lblfirst10").style.display = "block";
-        document.getElementById("lblfirst100").style.display = "block";
-        sum=hishuv(x1,x2,z,10);
-        integerPart=part(sum);
-        document.getElementById("lblfirst10").textContent=textopen + "10" + textnext + integerPart + shach;
-        
-        sum=hishuv(x1,x2,z1,10);
-        integerPart=part(sum);
-        document.getElementById("lblfirst100").textContent=textopen + "10" + textnext + integerPart + shach;
-
-    }
-    else {document.getElementById("lblfirst10").style.display = "none";
-          document.getElementById("lblfirst100").style.display = "none";*/
-    }
-
-    if(x3<20){
-        /*document.getElementById("lblfirst20").style.display = "block";
-        document.getElementById("lblfirst200").style.display = "block";
-        sum=hishuv(x1,x2,z,20);
-        integerPart=part(sum);
-        document.getElementById("lblfirst20").textContent=textopen + "20" + textnext + integerPart + shach;
-        
-        sum=hishuv(x1,x2,z1,20);
-        integerPart=part(sum);
-        document.getElementById("lblfirst200").textContent=textopen + "20" + textnext + integerPart + shach;
-
-            }
-    else {document.getElementById("lblfirst20").style.display = "none";
-        document.getElementById("lblfirst200").style.display = "none";*/
-    }
-
-    if(x3<30){/*
-        document.getElementById("lblfirst30").style.display = "block";
-        document.getElementById("lblfirst300").style.display = "block";
-        sum=hishuv(x1,x2,z,30);
-        integerPart=part(sum);
-        document.getElementById("lblfirst30").textContent=textopen + "30" + textnext + integerPart + shach;
-        
-        sum=hishuv(x1,x2,z1,30);
-        integerPart=part(sum);
-        document.getElementById("lblfirst300").textContent=textopen + "30" + textnext + integerPart + shach;
     
-    }
-    else {document.getElementById("lblfirst30").style.display = "none";
-        document.getElementById("lblfirst300").style.display = "none";*/
-    }
-
-
+    toz10.innerText= parseInt(sum10).toLocaleString()+ shach;
+    toz20.innerText= parseInt(sum20).toLocaleString()+ shach;
+    toz30.innerText= parseInt(sum30).toLocaleString()+ shach;
+    
+    if(x3<10){document.getElementById("tr10").style.display = "block";}
+    else{  document.getElementById("tr10").style.display = "none";}
+    if(x3<20){document.getElementById("tr20").style.display = "block";}
+     else{  document.getElementById("tr20").style.display = "none";}
+    if(x3<30){document.getElementById("tr30").style.display = "block";}
+    else{  document.getElementById("tr30").style.display = "none";}
+    
 }
 
 function toggleTextboxes() {
