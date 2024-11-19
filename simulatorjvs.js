@@ -61,7 +61,6 @@ function sumsum() {
        const tablediv= document.getElementById("tozaot");
        tablediv.innerHTML=""; 
        table= document.createElement("table");
-       table.style.border="1px solid blue";
        tablediv.appendChild(table);
        
         
