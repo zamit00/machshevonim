@@ -172,7 +172,7 @@ function sumsum() {
        const simuldiv= document.getElementById("simul") 
        par= document.createElement("p"); 
        par.innerText="בחר ריבית אחרת לסימולציה";
-       tablediv.appendChild(simuldiv);
+       simuldiv.appendChild(par);
         
        selectsim =document.createElement("select");
         selectsim.id="selsim";
