@@ -5,9 +5,10 @@ body{
 	
 }
 .ifrm{
-	height:90%px;
+	height:90%;
 	width: 80%;
 	background-color: aliceblue;
+	margin-right: 10px;
 }
 .pakadim{
 	display: flex;
