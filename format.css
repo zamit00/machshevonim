@@ -1,16 +1,21 @@
 
 body{
 	display: flex;
-	flex-direction: column;
 	
+	
+}
+.ifrm{
+	height:90%px;
+	width: 80%;
+	background-color: aliceblue;
 }
 .pakadim{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items:right;
-	height: 800px;
-	width: 200px;
+	height:90%px;
+	width: 15%;
 	margin: 0.2px 2px 0px 0px;
 	border: 1px solid blue;
 	background-color: aliceblue;
