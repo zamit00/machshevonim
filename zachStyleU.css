@@ -51,6 +51,8 @@ nav{
         border: 1px solid grey;
         width:120px;
         height: 30px;
+	background-color: transparent; 
+	border: 1px solid white;    
     }
 }
 
