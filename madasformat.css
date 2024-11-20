@@ -31,7 +31,7 @@ body{
 .shita{
   margin-top: 10px;
   font-size: 25px;
-  margin-right: 50px; 
+  margin-right: 2px; 
   width:100%;
 }
 .sugmadad{
@@ -53,7 +53,7 @@ body{
   justify-content: right;
   align-items: center;
   width: 100%;
-  margin: 0px 0px;
+  margin-right: 2px;
 }
 .lbl{width: 250px;}
 #sugmadad,#datefrom,#dateto,#schom{
@@ -75,7 +75,7 @@ body{
   width: 100%;
   height: auto;
   border: 1px solid black;
-  margin-right: 0;
+  margin-right: 2px;
   border-collapse: collapse;
 }
 th,td{
@@ -96,7 +96,7 @@ th{
   width: 100%;
   height: auto;
   border: 1px solid black;
-  margin:10px 0px 30px 0px;
+  margin:10px 2px 30px 0px;
   border-collapse: collapse;
 }
 .btnup{
