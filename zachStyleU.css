@@ -9,7 +9,28 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
     flex-direction: column;
 
 }
+#schomHadPeami,#schomHodshi{max-width:100px;text-align:center;}
+.koteret{
+	display: flex;
+	align-items: center;
+	
+}
+h3{margin: 10px 10px;
+}
+#koteret {
+          text-align: center;
+		  
 
+        }
+nav{
+    height: 50px;
+    width: 100%;
+    background-color: blue;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+  } 
+  
 
 .colSmall1{width:8.33333%}.colSmall2{width:16.66666%}.colSmall3{width:24.99999%}.colSmall4{width:33.33333%}
 .colSmall5{width:41.66666%}.colSmall6{width:49.99999%}.colSmall7{width:58.33333%}.colSmall8{width:66.66666%}
@@ -35,8 +56,7 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
 
 @media (max-width:767px){   
    
-        body {font-size: 16px;line-height: 1.5;}
-      
+        body {font-size: 16px;line-height: 1.5;}   
         .schomim,.radioButtons,.radio,h3,.colMobile4,p,
         table {width: 100%; padding: 0 15px;}
       
@@ -44,10 +64,7 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
           font-size: 20px;
         }
       
-        #koteret {
-          text-align: center;
-          padding: 10px;
-        }
+        
       
         
         /* כפתורים */
@@ -56,9 +73,6 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
           font-size: 18px;
         }
       
-         
-    
-    
     
 
 .back{
@@ -72,32 +86,28 @@ body {font-family: Arial, sans-serif;margin: 0 5px;padding: 0;
     justify-content: center;
     align-items: center;
 }
+}
 
 .tkf{
     margin-bottom: 10px;
 }
 
-nav{
-    height: 15%;
-    width: 100%;
-    background-color: blue;
-    color: aliceblue;
-    display: flex;
-    justify-content: center;
-  } 
+
   #koteret{
     margin-bottom: 10px;
   }
 
-#section{
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    
+
 }
+
 .radioButtons,.schomim{
     display: flex;flex-direction: column;
-    justify-content: center;
+	align-items: right;
+}
+.radio
+    display: flex;
+	align-items: center;
+	
 }
 input{
     height: 30px;
@@ -106,7 +116,7 @@ input{
 .select{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    
     
 }
 #selectTkofa{
