@@ -45,14 +45,18 @@ nav{
 .colComp5{width:41.66666%}.colComp6,.zach-half{width:49.99999%}.colComp7{width:58.33333%}.colComp8,.zach-twothird{width:66.66666%}
 .colComp9,.zach-threequarter{width:74.99999%}.colComp10{width:83.33333%}.colComp11{width:91.66666%}.colComp12,nav{width:99.99999%}
     .back{
-        position: relative;
-        top: 10px;
-        left:750px;
-        border: 1px solid grey;
-        width:120px;
-        height: 30px;
+    	position: relative;
+    	top: 7px;
+    	left:2px;
+    	border: 1px solid grey;
+    	width:120px;
+    	height: 30px;
+    	display:flex;
+    	justify-content: center;
+    	align-items: center;
 	background-color: transparent; 
-	border: 1px solid white;    
+	border: 1px solid white;
+	color: white;   
     }
 }
 
