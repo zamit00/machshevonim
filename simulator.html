@@ -10,7 +10,7 @@
     <script src="simulatorjvs.js" defer></script>
 </head>
 <body dir="rtl">
-    <nav class="colComp12">
+    <nav class="colComp12 koteret">
         <p id="koteret">מחשבון השקעה ריבית דריבית</p>
         <button id="back" class="back" onclick="back()">חזור</button>
     </nav>
@@ -34,7 +34,7 @@
         </div>
         
         <h3 >בחר סכומים להשקעה:</h3>
-        <table class="table colComp6 colMobile6" >
+        <table class="table colComp6 colMobile6" id="tblschomim" >
             <tr class="colComp4 colMobile4">
                 <td ><label class="colComp4 colMobile4" for="schomHadPeami" >סכום להפקדה חד פעמית</label></td>
                 <td><input onchange="sumsum()" class="colComp4 colMobile4" type="number"  id="schomHadPeami" min="1000" step="500" value="1000"/></td>
