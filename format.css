@@ -9,6 +9,7 @@ body{
 	width: 80%;
 	background-color: aliceblue;
 	margin-right: 10px;
+	min-height: 800px;
 }
 .pakadim{
 	display: flex;
