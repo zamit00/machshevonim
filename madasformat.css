@@ -1,30 +1,23 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  margin: 0;padding:0
+}
+
+
 .main{
-  width: 750px;
-  height: 850px;
+  width: 100vw;
+  height: 100vh;
   border: 2px double blue;
   display: flex;
   flex-direction: column;
 
 }
-.back{
-  margin-right: 50px;
-  width: 200px;
-  height: 35px;
-  font-size: 25px;
-  background-color:blue;
-  color: white;
-  border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-body{
-  display: flex;
-  justify-content: center;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 25px;
-  margin: 5px;
-}
+
+
 .headkot{
   width: 100%;
   height: 100px;
@@ -39,6 +32,7 @@ body{
   margin-top: 10px;
   font-size: 25px;
   margin-right: 50px; 
+  width:100%;
 }
 .sugmadad{
   width: 200px;
@@ -58,8 +52,8 @@ body{
   display: flex;
   justify-content: right;
   align-items: center;
-  width: 65%;
-  margin: 0px 50px;
+  width: 100%;
+  margin: 0px 0px;
 }
 .lbl{width: 250px;}
 #sugmadad,#datefrom,#dateto,#schom{
@@ -78,10 +72,10 @@ body{
   align-items: center;
 }
 .tbltozaa{
-  width: 600px;
+  width: 100%;
   height: auto;
   border: 1px solid black;
-  margin-right: 50px;
+  margin-right: 0;
   border-collapse: collapse;
 }
 th,td{
@@ -99,10 +93,10 @@ th{
   
 }
 .tbltozaaH{
-  width: 600px;
+  width: 100%;
   height: auto;
   border: 1px solid black;
-  margin:10px 50px 30px 0px;
+  margin:10px 0px 30px 0px;
   border-collapse: collapse;
 }
 .btnup{
