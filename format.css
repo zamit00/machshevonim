@@ -23,7 +23,7 @@ body{
 	background-color: aliceblue;
 }
 .pakad{
-	width: 150px;
+	width: 100%px;
 	height: 150px;
 	box-shadow: 2px 5px 10px blue;
 	background-color: white;
