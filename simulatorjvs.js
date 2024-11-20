@@ -32,9 +32,7 @@ window.onload = function() {
     sumsum();
     }
    
-function back() {
-  window.location.href = "https://zamit00.github.io/machshevonim/";
-}
+
 
 function sumsum() {
             
