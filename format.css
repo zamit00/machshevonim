@@ -51,76 +51,9 @@ header{
 		margin-right: 2px;
 	
 }
-.contain{
-	width: 650px;
-	height: 800;
-	border: 1px solid blue;
-	background-color: aliceblue;
-	display: flex;
-	flex-direction: column;
-	
-}
+
 .main-container{
 	display: flex;
 	flex-direction: row;
 }
-.radio-cont{
-	display: grid;
-	grid-template-rows: 40px 40px 40px;
-	grid-template-columns: 30px 620px ;
-	margin-top: 50px;
-	font-size: 30px;
-	margin-right: 10px;
-}
-.schumim{
-	display: grid;
-	grid-template-rows: 40px 40px ;
-	grid-template-columns: 350px 150px ;
-	font-size: 30px;
-	margin: 20px 10px 10px 0px;
-	gap: 7px 0px;
-	
-}
-.schum, .select{
-		font-size: 25px;
-		text-align: center;
-}
-.tkofadn{
-	display: grid;
-	grid-template-rows: 40px 40px ;
-	grid-template-columns: 220px 70px 220px 80px;
-	font-size: 30px;
-	margin: 10px 10px 10px 0px;
-	text-align: right;
-	gap: 0px 8px;
-	
-	
-}
-#hashev{
-	width: 100px;
-	height: 30px;
-	box-shadow: 2px 5px 10px blue;
-	background-color: white;
-	display: flex;
-	align-items: center;
-	font-size: 30px;
-	text-align: center;
-	color: blue;
-	border: 1px solid blue;
-	margin-right: 10px;
-	
-	
-}
-#schomatidi{
-		margin:30px 20px 0px 0px;
-		font-size:35px;
-		color: blue;
-		font-weight: bold;
-		text-decoration: italic;
-}
-#hazhara{
-		margin:30px 20px 0px 0px;
-		font-size:25px;
-		color: red;
-		
-}
+
