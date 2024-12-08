@@ -1,379 +1,343 @@
 const todayd=new Date();
+
 const day = String(todayd.getDate()).padStart(2,'0');
+console.log(document.getElementById('dateto'));
 const month=String(todayd.getMonth()+1).padStart(2,'0');
 const year=todayd.getFullYear();
 document.getElementById('dateto').max=`${year}-${month}-${day}`;
 document.getElementById('datefrom').max=`${year}-${month}-${day}`;
 
 
-function chooseradio(){
-    const radio = document.getElementById("boded");
-    const madadsugchoose = document.getElementById("sugmadad");
-    
-    if(radio.checked){
-       location.reload();
-        document.getElementById("hashev").disabled=false;
-        document.getElementById("input-excel").disabled=true;
-        document.getElementById("dateto").disabled=false;
-        document.getElementById("datefrom").disabled=false;
-        document.getElementById("schom").disabled=false;
-        document.getElementById("dateto").value='';
-        document.getElementById("datefrom").value='';
-        document.getElementById("schom").value='';
-	document.getElementById("input-excel").style.display='none';
-	document.getElementById("lblup").style.display='none';
-	document.getElementById('frt1').innerHTML='';
-    	document.getElementById('frt2').innerHTML='';
-    	document.getElementById('md1').innerHTML='';
-    	document.getElementById('md2').innerHTML='';
-    	document.getElementById('nm1').innerHTML='';
-    	document.getElementById('nm2').innerHTML='';
-    	document.getElementById('toz').innerHTML='';
-    	document.getElementById('toza').innerHTML=''; 
-	document.getElementById('output').innerHTML='';
-        
+
+function shita(){
+    const boded=document.getElementById('boded');
+    const kovetz=document.getElementById('kovetz');
+    const outputDiv = document.getElementById('output');
+  
+
+    if (boded.checked) {
+        document.getElementById('madadstyle').style.display='flex';
+        document.getElementById('taarich').style.display='flex';
+        document.getElementById('schomdiv').style.display='flex';
+        document.getElementById('hashevdiv').style.display='flex';
+        document.getElementById('btnlblup').style.display='none';
+        outputDiv.innerHTML = '';
+        document.getElementById('input-excel').value = '';
     }
     else{
-	
-        madadsugchoose.value=1;
-        document.getElementById("hashev").disabled=true;
-        document.getElementById("input-excel").disabled=false;
-        document.getElementById("dateto").disabled=true;
-        document.getElementById("datefrom").disabled=true;
-        document.getElementById("schom").disabled=true;
-        document.getElementById("dateto").value='';
-        document.getElementById("datefrom").value='';
-        document.getElementById("schom").value='';
-	document.getElementById("input-excel").style.display='block';
-	document.getElementById("lblup").style.display='block';
-	document.getElementById('frt1').innerHTML='';
-    	document.getElementById('frt2').innerHTML='';
-    	document.getElementById('md1').innerHTML='';
-    	document.getElementById('md2').innerHTML='';
-    	document.getElementById('nm1').innerHTML='';
-    	document.getElementById('nm2').innerHTML='';
-    	document.getElementById('toz').innerHTML='';
-    	document.getElementById('toza').innerHTML=''; 
+        document.getElementById('madadstyle').style.display='none';
+        document.getElementById('taarich').style.display='none';
+        document.getElementById('schomdiv').style.display='none';
+        document.getElementById('hashevdiv').style.display='none';
+        document.getElementById('tables').style.display='none';
+        document.getElementById('btnlblup').style.display='block';
+    }
+    }
+
+function cnl(){
+    const boded=document.getElementById('boded');
+    const kovetz=document.getElementById('kovetz');
+    const yadoa=document.getElementById('yadoa');
+    const begin=document.getElementById('begin');
+    
+    if (boded.checked) {
+        if(begin.checked){bodedf('begin');}
+        if(yadoa.checked){bodedf('yadoa');}
+    } 
+    else if (kovetz.checked) {
+      return;
+    } 
+}
+
+function bodedf(x) {
+    let df = document.getElementById('datefrom');
+    let dt = document.getElementById('dateto');
+    
+    
+    let datef = new Date(df.value); 
+    let datet = new Date(dt.value); 
+    const schom=parseFloat(document.getElementById('schom').value)
+    
+    if( isNaN(datef) || isNaN(datet) || datef>datet){alert('בדוק תקינות תאריכים');return;}
+    if(!schom ){alert('חסר סכום');return;}
+    
+    let dayf = datef.getDate(); 
+    let monthf = datef.getMonth() + 1; 
+    let yearf = datef.getFullYear(); 
+    
+    let dayt = datet.getDate(); 
+    let montht = datet.getMonth() + 1; 
+    let yeart = datet.getFullYear();
+    
+    let formatdatef
+    let formatdatet
+
+    if(x==="yadoa"){
+
+    if(dayf<15 && Number(monthf) <3){
+        formatdatef=String(monthf+10)+String(yearf-1);    
+    }
+    else if(dayf>=15 && Number(monthf) ===1){
+        formatdatef="12"+String(yearf-1);   
+    }
+    else if(dayf<15){
+        formatdatef=String(monthf-2)+String(yearf);    
+    }
+    else if(dayf>=15 ){
+        formatdatef=String(monthf-1)+String(yearf);
+    }
+
+    if(dayt<15 && Number(montht) <3){
+        formatdatet=String(montht+10)+String(yeart-1);    
+    }
+    else if(dayt>=15 && Number(montht) ===1){
+        formatdatet="12"+String(yeart-1);   
+    }
+    else if(dayt<15){
+        formatdatet=String(montht-2)+String(yeart);    
+    }
+    else if(dayt>=15 ){
+        formatdatet=String(montht-1)+String(yearf);
     }
 }
-function madadchange(){
+else{
     
-    document.getElementById('frt1').innerHTML='';
-    document.getElementById('frt2').innerHTML='';
-    document.getElementById('md1').innerHTML='';
-    document.getElementById('md2').innerHTML='';
-    document.getElementById('nm1').innerHTML='';
-    document.getElementById('nm2').innerHTML='';
-    document.getElementById('toz').innerHTML='';
-    document.getElementById('toza').innerHTML=''; 
-}      
+    formatdatef=String(monthf)+String(yearf);  
+    formatdatet=String(montht)+String(yeart);    
+}  
+    
+    var x= madad.indexOf (Number("-"+formatdatef));
+    const madadf= madad.slice(x+1, x+2)*-1;
+    var x= madad.indexOf (Number("-"+formatdatet));
+    const madadt= madad.slice(x+1, x+2)*-1;
 
-function madadsug(){
-    const selval= document.getElementById('sugmadad')
-    return selval.value;  
+
+
+    /*if(isNaN(x)|| x===0){alert('לא קיים מדד בגין לתאריך הנבחר');return;}
+    */
+   
+    var schommemudad=(schom*madadt/madadf).toFixed(2);
+    schommemudad=Number(schommemudad).toLocaleString();
+    
+    document.getElementById('frt1').textContent=dayf+"/"+monthf+"/"+yearf;
+    document.getElementById('frt2').textContent=dayt+"/"+montht+"/"+yeart;
+
+    document.getElementById('md1').textContent=formatdatef.slice(0,formatdatef.length-4)+"/"+
+    formatdatef.slice(formatdatef.length-4,formatdatef.length);
+    document.getElementById('md2').textContent=formatdatet.slice(0,formatdatet.length-4)+"/"+
+    formatdatet.slice(formatdatet.length-4,formatdatet.length);
+
+
+    document.getElementById('nm1').textContent=madadf.toFixed(2);
+    document.getElementById('nm2').textContent=madadt.toFixed(2);
+
+    document.getElementById('tozk').textContent=Number(schom).toLocaleString();
+    document.getElementById('tozm').textContent=schommemudad;
+    document.getElementById('tables').style.display="block";
+    
 }
-    function cnl(){
-       
-        const datefrom = new Date(document.getElementById('datefrom').value);
-        const dateto = new Date(document.getElementById('dateto').value);
-        
 
-        const dayfrom = Number(datefrom.getDate());
-        const monthfrom=Number(datefrom.getMonth())+1;
-        const yearfrom=Number(datefrom.getFullYear());
-        
-        const dayto = Number(dateto.getDate());
-        const monthto=Number(dateto.getMonth())+1;
-        const yearto=Number(dateto.getFullYear());
 
-        
-        
-       
-        if(datefrom.getTime()>=dateto.getTime()){
-            alert("תאריך מ צריך להיות קטן מתאריך עד");
-            return;
-        }
-        else if(document.getElementById("schom").value===''){
+function yavee(e) {
+            
+    const file = e.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            const data = event.target.result;
+            const workbook = XLSX.read(data, { type: 'binary' });
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            let jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+            jsonData=jsonData.slice(1);
+            
+
+            // המרת תאריך Excel לפורמט JavaScript Date
+            const convertExcelDateToJSDate = (excelDate) => {
+                return new Date((excelDate - (25567 + 2)) * 86400 * 1000); // המרה ל-epoch
+                
+            };
+
+            // סינון שורות עם ערכים חסרים או NaN
+            jsonData = jsonData.filter(row => {
+                return row[0] !== undefined &&   row[0]!==0 && row[1] !== undefined &&   row[1]!==0  ;
+            });
+
+            // המרת כל הנתונים בתאריך לפורמט תאריך
+            jsonData.forEach(row => {
+                row[0] = convertExcelDateToJSDate(row[0]);
+            
+    });
+            
+
+            
+
+            // מיון הנתונים לפי תאריך
+            jsonData.sort((a, b) => a[0] - b[0]);
+
+            // הצגת הנתונים בטבלה
+            displayDataInTable(jsonData);
+
+          
            
-            alert("נדרש למלא סכום");
-            return; 
-        }
-        else if(isNaN(datefrom) || isNaN(dateto)){
-            alert("נדרש למלא תאריכים");
-            return; 
-        }
-        
-        
-		const schom = document.getElementById('schom').value;
-        document.getElementById('schom').innerHTML=Number(schom).toLocaleString;
-		let formatdateto;
-        let formatdatefrom;
+        };
 
-        
-		if(dayfrom<15 && Number(monthfrom) <3){
-			formatdatefrom="-"+String(monthfrom+10)+String(yearfrom-1);
-		}
-        else if(dayfrom>=15 && Number(monthfrom) ===1){
-			formatdatefrom="-"+"12"+String(yearfrom-1);
-		}
-		else if(dayfrom<15){
-			formatdatefrom="-"+String(monthfrom-2)+String(yearfrom);
-		}
-        else if(dayfrom>=15 ){
-			formatdatefrom="-"+String(monthfrom-1)+String(yearfrom);
-		}
-        
-		
-		
-        
-
-        if(dayto<15 && Number(monthto) <3){
-			formatdateto="-"+String(monthto+10)+String(yearto-1);
-		}
-        else if(dayto>=15 && Number(monthto) ===1){
-			formatdateto="-"+"12"+String(yearto-1);
-		}
-		else if(dayto<15){
-			formatdateto="-"+String(monthto-2)+String(yearto);
-		}
-        else if(dayto>=15 ){
-			formatdateto="-"+String(monthto-1)+String(yearto);
-		}
-        
-         
-        
-
-        const mads=madadsug();
-        if (Number(mads)===2){
-            formatdatefrom="-"+String(monthfrom)+String(yearfrom);
-            formatdateto="-"+String(monthto)+String(yearto);
-        }
-
-        
-        var madadfrom= madad.indexOf (Number(formatdatefrom));
-	var madadto= madad.indexOf (Number(formatdateto));
-	if(madadfrom===-1 || madadto===-1){
-            alert("אין נתוני מדד לתקופה המבוקשת");return;
-        }
-	 console.log(madadfrom); console.log(madadto);
-        
-        
-        //if(x===0){alert("none");return;}
-      
-       
-        
-	const madadnumfrom= madad.slice(madadfrom+1, madadfrom+2)*-1;
-        const madadnumto= madad.slice(madadto+1, madadto+2)*-1;
-	const tozaa=(madadnumto/madadnumfrom*schom).toFixed(2);
-        console.log(madadnumfrom); console.log(madadnumto);
-	    
-        if(isNaN(madadnumfrom) || isNaN(madadnumto)){return;}
-
-        document.getElementById('frt1').innerHTML=formatDate(datefrom);
-	document.getElementById('frt2').innerHTML=formatDate(dateto);
-        document.getElementById('md1').innerHTML=formatdatefrom.slice(1,formatdatefrom.length-4)+"."+formatdatefrom.slice(formatdatefrom.length-4);
-        document.getElementById('md2').innerHTML=formatdateto.slice(1,formatdateto.length-4)+"."+formatdateto.slice(formatdateto.length-4);
-        document.getElementById('nm1').innerHTML=Number(madadnumfrom).toFixed(2);
-        document.getElementById('nm2').innerHTML=Number(madadnumto).toFixed(2);
-        document.getElementById('toz').innerHTML=Number(tozaa).toLocaleString();
-        document.getElementById('toza').innerHTML=Number(schom).toLocaleString();
-        // document.querySelector('#tbltozaa tr:nth-child(2);td:nth-child(2)').innerHTML=madadnumfrom;
-       // document.querySelector('#tbltozaa tr:nth-child(3);td:nth-child(2)').innerHTML=madadnumto;
-
-    
+        reader.readAsBinaryString(file);
     }
-        
+}
+
+// פונקציה להצגת הנתונים בטבלה
+function displayDataInTable(data) {
+const table = document.createElement('table');
+table.id = 'myTable';
+table.className = 'tbldata';
+table.style.display = 'block';
     
-        function yavee(e) {
+
+    const headerRow = document.createElement('tr');
+    if (data.length > 0) {
+
+        th = document.createElement('th');
+        th.textContent = 'תאריך הפקדה';
+        headerRow.appendChild(th);
+        
+        th = document.createElement('th');
+        th.textContent = 'סכום';
+        headerRow.appendChild(th);
+
+        th = document.createElement('th');
+        th.textContent = 'מדד בסיס';
+        headerRow.appendChild(th);
+                    
+
+        th = document.createElement('th');
+        th.textContent = 'סכום צמוד למדד';
+        headerRow.appendChild(th);
+        table.appendChild(headerRow);
+                    
             
-            const file = e.target.files[0];
+        
+        
+        
+        
 
-            if (file) {
-                const reader = new FileReader();
-
-                reader.onload = function(event) {
-                    const data = event.target.result;
-                    const workbook = XLSX.read(data, { type: 'binary' });
-                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    let jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-		            jsonData=jsonData.slice(1);
-                    
-
-                    // המרת תאריך Excel לפורמט JavaScript Date
-                    const convertExcelDateToJSDate = (excelDate) => {
-                        return new Date((excelDate - (25567 + 2)) * 86400 * 1000); // המרה ל-epoch
-                        
-                    };
-
-                    // סינון שורות עם ערכים חסרים או NaN
-                    jsonData = jsonData.filter(row => {
-                        return row[0] !== undefined &&   row[0]!==0 && row[1] !== undefined &&   row[1]!==0  ;
-                    });
-
-                    // המרת כל הנתונים בתאריך לפורמט תאריך
-                    jsonData.forEach(row => {
-                        row[0] = convertExcelDateToJSDate(row[0]);
-                    
-		    });
-                    
-
-                    
-
-                    // מיון הנתונים לפי תאריך
-                    jsonData.sort((a, b) => a[0] - b[0]);
-
-                    // הצגת הנתונים בטבלה
-                    displayDataInTable(jsonData);
-
-                  
-                   
-                };
-
-                reader.readAsBinaryString(file);
-            }
+        // יצירת שורות עבור הנתונים
+        data.forEach(row => { 
+            let formatdate;
+            const tr = document.createElement('tr');
+            row.forEach((cell, index) => {
+                const td = document.createElement('td');
+    
+                if (index === 0 && cell instanceof Date) {	
+                    td.textContent = formatDate(cell);
+                    tr.appendChild(td);
+                
+                } 
+                
+                else {                                
+                        td.textContent = Number(cell.toFixed(2)).toLocaleString();
+                        tr.appendChild(td);
+                }
+                
+        if (index === 1){
+                
+        const da= row[0].getDate(); let mo=row[0].getMonth()+1;const yr=row[0].getFullYear();
+        
+        if(da<15 && Number(mo) <3){
+            formatdate="-"+String(mo+10)+String(yr-1);    
         }
+        else if(da>=15 && Number(mo) ===1){
+            formatdate="-"+"12"+String(yr-1);   
+        }
+        else if(da<15){
+            formatdate="-"+String(mo-2)+String(yr);    
+        }
+        else if(da>=15 ){
+            formatdate="-"+String(mo-1)+String(yr);
+        }
+        
 
-        // פונקציה להצגת הנתונים בטבלה
-        function displayDataInTable(data) {
-        const table = document.createElement('table');
-	    table.id = 'myTable';
-        table.className = 'tbldata';
-        table.style.display = 'block';
-			
 
-            const headerRow = document.createElement('tr');
-            if (data.length > 0) {
-
-                th = document.createElement('th');
-                th.textContent = 'תאריך הפקדה';
-                headerRow.appendChild(th);
-				
-				th = document.createElement('th');
-                th.textContent = 'סכום';
-                headerRow.appendChild(th);
-
-				th = document.createElement('th');
-                th.textContent = 'מדד בסיס';
-                headerRow.appendChild(th);
-							
-
-				th = document.createElement('th');
-                th.textContent = 'סכום צמוד למדד';
-                headerRow.appendChild(th);
-				table.appendChild(headerRow);
-							
-					
+        
+var x= madad.indexOf (Number(formatdate));
+        
+        //if(mads=2){x=x+2};
+        
+const w= madad.slice(x+1, x+2)*-1;
+const madadnow=madad.slice(madad.length-2,madad.length-1)*-1;
+        
+const td2 = document.createElement('td');
+td2.textContent = Number(w).toFixed(2);
+tr.appendChild(td2);
+const td3 = document.createElement('td');
+        td3.textContent = Number(Number((row[1]*madadnow/w)).toFixed(2)).toLocaleString();
+         tr.appendChild(td3);
+        }
+            
                 
-                
-				
-				
+            });				
+            
+            table.appendChild(tr);
+        });
+        
+    }
+    
 
-                // יצירת שורות עבור הנתונים
-                data.forEach(row => { 
-                    let formatdate;
-                    const tr = document.createElement('tr');
-                    row.forEach((cell, index) => {
-                        const td = document.createElement('td');
-			
-                        if (index === 0 && cell instanceof Date) {	
-                            td.textContent = formatDate(cell);
-							tr.appendChild(td);
-						
-                        } 
-                        
-                        else {                                
-                                td.textContent = Number(cell.toFixed(2)).toLocaleString();
-							    tr.appendChild(td);
-                        }
-						
-				if (index === 1){
-						
-				const da= row[0].getDate(); let mo=row[0].getMonth()+1;const yr=row[0].getFullYear();
-				
-                if(da<15 && Number(mo) <3){
-                    formatdate="-"+String(mo+10)+String(yr-1);    
-                }
-                else if(da>=15 && Number(mo) ===1){
-                    formatdate="-"+"12"+String(yr-1);   
-                }
-                else if(da<15){
-                    formatdate="-"+String(mo-2)+String(yr);    
-                }
-                else if(da>=15 ){
-                    formatdate="-"+String(mo-1)+String(yr);
-                }
-                
+    // הצגת הטבלה בדף
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = ''; // ניקוי התוכן הקודם
+    outputDiv.appendChild(table);
+    calculateColumnSum()
 
 
-                
-		var x= madad.indexOf (Number(formatdate));
-                
-                //if(mads=2){x=x+2};
-                
-		const w= madad.slice(x+1, x+2)*-1;
-		const madadnow=madad.slice(madad.length-2,madad.length-1)*-1;
-                
-		const td2 = document.createElement('td');
-		td2.textContent = Number(w).toFixed(2);
-		tr.appendChild(td2);
-		const td3 = document.createElement('td');
-                td3.textContent = Number(Number((row[1]*madadnow/w)).toFixed(2)).toLocaleString();
-                 tr.appendChild(td3);
-				}
-					
-                        
-                    });				
-					
-                    table.appendChild(tr);
-                });
+}
+
+// פונקציה להמיר תאריך לפורמט dd/mm/yyyy
+function formatDate(date) {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+function calculateColumnSum(x) {
+    var table = document.getElementById('myTable'); // שולף את הטבלה
+    var sum = 0; var suma = 0;
+    var rows = table.getElementsByTagName('tr'); // שולף את כל השורות בטבלה
+    
+    // מעגלים על כל השורות, מתחילים מ-1 כדי לדלג על השורה הראשונה (כותרות)
+    for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName('td'); // שולף את התאים של כל שורה
+        if (cells.length > 1) { // אם השורה לא ריקה ויש לפחות שני תאים
+            var value = parseFloat(cells[3].textContent); // מקבל את הערך בעמודה השנייה
+            var valuea = parseFloat(cells[1].textContent);
+            if (!isNaN(value)) { // אם הערך הוא מספר
+                sum += value; // מוסיף את הערך לסכום
                 
             }
-            
-
-            // הצגת הטבלה בדף
-            const outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = ''; // ניקוי התוכן הקודם
-            outputDiv.appendChild(table);
-            calculateColumnSum()
-
-	   
-        }
-
-        // פונקציה להמיר תאריך לפורמט dd/mm/yyyy
-        function formatDate(date) {
-            const day = date.getDate().toString().padStart(2, '0');
-            const month = (date.getMonth() + 1).toString().padStart(2, '0');
-            const year = date.getFullYear();
-            return `${day}/${month}/${year}`;
-        }
-  
-        function calculateColumnSum(x) {
-            var table = document.getElementById('myTable'); // שולף את הטבלה
-            var sum = 0; var suma = 0;
-            var rows = table.getElementsByTagName('tr'); // שולף את כל השורות בטבלה
-            
-            // מעגלים על כל השורות, מתחילים מ-1 כדי לדלג על השורה הראשונה (כותרות)
-            for (var i = 1; i < rows.length; i++) {
-                var cells = rows[i].getElementsByTagName('td'); // שולף את התאים של כל שורה
-                if (cells.length > 1) { // אם השורה לא ריקה ויש לפחות שני תאים
-                    var value = parseFloat(cells[3].textContent); // מקבל את הערך בעמודה השנייה
-                    var valuea = parseFloat(cells[1].textContent);
-                    if (!isNaN(value)) { // אם הערך הוא מספר
-                        sum += value; // מוסיף את הערך לסכום
-                        
-                    }
-                    if (!isNaN(valuea)) { // אם הערך הוא מספר
-                        suma += valuea; // מוסיף את הערך לסכום
-                        
-                    }
-                }
+            if (!isNaN(valuea)) { // אם הערך הוא מספר
+                suma += valuea; // מוסיף את הערך לסכום
+                
             }
-            
-            // מציג את הסכום באלמנט #total
-            document.getElementById('toz').textContent = Number(sum.toFixed()).toLocaleString();
-            document.getElementById('toza').textContent = Number(suma.toFixed()).toLocaleString();
-
         }
+    }
+    
+    // מציג את הסכום באלמנט #total
+    document.getElementById('toz').textContent = Number(sum.toFixed()).toLocaleString();
+    document.getElementById('toza').textContent = Number(suma.toFixed()).toLocaleString();
+
+}
+
+
+
+
+
+
+
+
+
+
 
 		var madad=[-11980,-10561.0495497966,-0.0292960904,-21980,-11081.6513850786,-0.030740227,-31980,-11647.5229451677,-0.0323099408,-41980,-12835.8532213549,-0.0356063396,
             -51980,-14050.5908370128,-0.0389759917,-61980,-14699.4568925817,-0.0407759301,-71980,-15342.6642325497,-0.0425601714,-81980,-16608.3302886157,-0.0460710977,
@@ -513,4 +477,3 @@ function madadsug(){
             
             
 ];
-
