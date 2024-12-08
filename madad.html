@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="madasformat.css"/>
     <script src="madadJvs.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+  <script>
+    function clsw(){window.close()}
+  </script>
+  <style>
+      .xsign{color:white;position:fixed;left:20px;top:20px;}
+  </style>
 </head>
 
 <body dir="rtl" style="margin: auto;" >
@@ -14,42 +20,79 @@
     
     <!-- <button style="width: 100px; height: 50px;" onclick="test()"></button> -->
        
-    <br/>
-<div  class='main'>
-	<div class="headkot">
-            מחשבון הצמדה למדד 
+   <header onclick="clsw()">
+        <div class='xsign'>X</div>
+        <div class="kot">
+             <h1>כסף צומח</h1>
+             <h2>קופות גמל וקרנות השתלמות</h2>
+             <img src="aziz.png" alt="logo" class="logo" id="log" >
+         </div>
+    </header> 
+    <main>
+     
+	<div class="headkot"> מחשבון הצמדה למדד </div>
+        <div class="shita" id="shita">
+            <div class="rd">
+                <input type="radio" name="shita" class="boded"  id="boded" onchange="shita()" checked>
+                <label>חישוב בודד</label>
+            </div>
+            <div class="up">
+                <div class="rd">
+                    <input type="radio" name="shita" class="kovetz" id="kovetz" onchange="shita()">
+                    <label>העלאת קובץ (לפי מדד ידוע)</label>
+                </div>
         </div>
-        <div class="shita">
-            <input type="radio" name="shita" class="boded"  id="boded" onchange="chooseradio()" checked>חישוב בודד
-            <input type="radio" name="shita" class="kovetz" id="kovetz" onchange="chooseradio()">העלאת קובץ (חישוב לפי מדד ידוע נוכחי)
+        
         </div>
-        <div class="madadstyle">
-            <label for="sugmadad" class="lbl">בחר סוג מדד</label>
-            <select class="sugmadad" id="sugmadad" onchange="madadchange()" >
-                <option value="1">מדד ידוע</option>
-                <option value="2">מדד בגין</option>
-            </select>
+        <div class='btnlblup' id="btnlblup">
+            <label for="input-excel" class="lblup" id="lblup">בחר קובץ להעלאה</label>
+            <input type="file" id="input-excel" class="btnup"
+            accept=".xlsx, .xls" onchange="yavee(event)" value="בחר"/>
+            <pre id="fileCntent"></pre>
         </div>
-        <div class="taarich">
-            <label for="datefrom" class="lbl">בחר תאריך מ</label>
-            <input type="date" class="dated" id="datefrom" min="2012-01-01" lang="he" dir="rtl" required>
+        <div class="madadstyle" id="madadstyle">
+            <div >
+                <div class="rd">
+                    <input type="radio" name="madad" class="boded"  id="yadoa" checked>
+                    <label>מדד ידוע</label>
+                </div>
+                <div class="rd">
+                    <input type="radio" name="madad" class="kovetz" id="begin" >
+                    <label>מדד בגין</label>
+                </div>
+            
+            </div>
         </div>
-        <div class="taarich">
-            <label for="datefrom" class="lbl">בחר תאריך עד</label>
-            <input type="date" class="dated" id="dateto" min="2012-01-01" lang="he" dir="rtl" required>
+
+        
+        <div class="taarich" id="taarich">
+             <div class="rd">  
+                <label for="datefrom" class="lbl" style='font-size:16px' >בחר תאריך מ</label>
+                <input type="date" class="dated" id="datefrom" min="2012-01-01" lang="he" dir="rtl" required>
+            </div>
+            <div  class="rd">
+                <label for="datefrom" class="lbl" style='font-size:16px' >בחר תאריך עד</label>
+                <input type="date" class="dated" id="dateto" min="2012-01-01" lang="he" dir="rtl" required>
+            </div>
         </div>
-	<div class="schom">
-            <label for="schom" class="lbl">הקלד סכום</label>
+        
+	<div class="schom" id="schomdiv">
+        <div class="rd sch"> 
+            <label for="schom"  style='font-size:16px' class="lbl">הקלד סכום</label>
             <input type="number" id="schom" min=1/> 
         </div>
-	
-	<input type="submit" onclick="cnl()" class="btn" value="חשב" id="hashev"/>
-
+    </div>
+    <div class="schom" id="hashevdiv">
+	    <div class=" hashev"> 
+	        <input type="button" onclick="cnl()" class="btn" value="חשב" id="hashev"/>
+        </div>
+    </div>
+    <div id="tables">
         <table class="tbltozaa">
             <tr>
-                <th>תאריך</th>
-                <th>חודש מדד</th>
-                <th>מדד בנקודות</th>
+                <th class="wt">תאריך</th>
+                <th class="wt">חודש מדד</th>
+                <th>מדד (בסיס 1951)</th>
             </tr>
             <tr>
                 <td id="frt1"></td>
@@ -64,22 +107,17 @@
         </table>
 	<table class="tbltozaaH">
             <tr>
-                <td >סכום הפקדה</td>
-                <td colspan="2" id="toza"></td>  
+                <th class="wtd">סכום הפקדה</th>
+                <td colspan="2" id="tozk"></td>  
             </tr>
             <tr>
-                <td >סכום צמוד למדד</td>
-                <td colspan="2" id="toz"></td>  
+                <th >סכום צמוד למדד</th>
+                <td colspan="2" id="tozm"></td>  
             </tr>
         </table>
-        <div class='btnlblup'>
-            <label for="input-excel" class="lblup" id="lblup">בחר קובץ להעלאה</label>
-            <input type="file" id="input-excel" class="btnup"
-              accept=".xlsx, .xls" onchange="yavee(event)"  value="בחר" disabled/>
-            <pre id="fileCntent"></pre>
-        </div>
+    </div>    
     <!-- מקום להציג את הנתונים -->   
     <div id="output"></div>
-</div>	
+</main>	
 </body>
 </html>
